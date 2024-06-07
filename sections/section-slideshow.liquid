@@ -58,7 +58,6 @@
         if btn_link != blank and slide_btn_text == blank and slide_btn_text_2 == blank and video_btn_text == blank
           assign image_link = true
         endif
-         
       -%}
 
       {%- style -%}
@@ -98,15 +97,15 @@
         <div class="slide__image__container slide__image__container--desktop{% unless image %} slide__image__container--placeholder{% endunless %}" style="padding-top: {{ 100 | divided_by: image_aspect_ratio | append: '%' }}">
           <div class="slide__image__inner">
             {%- if image != blank -%}
-              <a class="slide__link" href="{{ btn_link }}" aria-label="{{ title | strip_html | escape }}"{% if forloop.index > 1 %} tabindex="-1"{% endif %}>
+              <a class="" href="{{ btn_link }}" aria-label="{{ title | strip_html | escape }}"{% if forloop.index > 1 %} tabindex="-1"{% endif %}>
               <div class="slide__image bg-pos-{{ bg_position }} lazyloaded"
                    data-sizes="auto"
                    data-parent-fit="cover"
                    style="background-image: url({{ image | img_url: '1524x' }});">
-               </div> </a>
+               </div> 
               <noscript>
                 <div class="slide__image bg-pos-{{ bg_position }}" style="background-image: url({{ image | img_url: '2048x' }});"></div>
-              </noscript>
+              </noscript></a>
             {%- else -%}
               <div class="slide__image slide__image--desktop slide__image--placeholder">
                 <div class="slide__image__svg">

@@ -14863,7 +14863,10 @@ if ($(document).width() > 576) {
 
     }))
 }
- 
+
+
+   
+
 
 $(".closeTopBar").click((function() {
     $(this).parent("#shopify-section-announcement-bar").hide(), setcook()

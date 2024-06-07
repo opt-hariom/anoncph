@@ -3,6 +3,179 @@
     justify-content: flex-end !important;
   flex-flow: nowrap !important;
 }
+.header__grandparent__links .subchildCZ a .navtext {
+    display: inline-block;
+}
+body#about-us .imageFullSection {
+    background: #fff;
+}
+.forVIdeo{
+  position: relative;
+    width: 100%;
+    max-width: 800px; /* Adjust max-width as needed */
+    margin: 0 auto; /* Center the video horizontally */
+}
+.forVIdeo video{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+#about-us .shopify-section {
+    background: #fff;
+}
+.collection__filters {
+    display: none;
+  margin-left:51px;
+}
+body:not(.template-index) .site-header .pagination.pagination--search a {
+    color: #fff !important;
+}
+body:not(.template-index) .site-header .pagination.pagination--search a:hover {
+    color: #222 !important;
+}
+.viewBy {
+    display: flex;
+    gap: 12px;
+}
+badgetitle.primebText {
+    font-style: normal !important;
+    font-family: 'AvenirNextLTPro-Regular';
+}
+.grid.five {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid.three {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid.four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.viewBy span{
+    cursor: pointer;
+    font-family: AvenirNextLTPro-Regular;
+    color: #222;
+    letter-spacing: 0em;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+}
+.viewBy span a {
+    color: #7e7e82;
+}
+.viewBy span.current a {
+    color: #222;
+}
+.viewBy span.text {
+    font-family: AvenirNextLTPro-Medium;
+}
+
+.mosaic__item__content.mosaic__item__content--center {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.template-collection .wrapper.wrapper--full {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+div#CollectionStickyBar {
+    padding-left: 53px;
+    padding-right: 42px;
+  height: 66px;
+      align-items: center;
+    justify-content: space-between;
+}
+.filterCenter a {
+    cursor: pointer;
+    font-family: AvenirNextLTPro-Medium;
+    color: #222;
+    letter-spacing: 0em;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+}
+.cz-paginate .btnBox {
+    padding: 0 45px;
+}
+.template-collection .wrapper.wrapper--full .collection__inner {
+    width: 100%;
+}
+p.mosaic__item__subheading.subheading-text {
+    font-family: AvenirNextLTPro-Regular !important;
+    letter-spacing: 0em;
+    -webkit-font-smoothing: antialiased;
+    font-weight: normal;
+  font-size:12px;
+}
+.slide__text__container .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial {
+    display: flex;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 120px;
+}
+.slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial h1.slide__heading.main-heading, .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial .slide__buttons.main-buttons {
+    width: 100%;
+}
+
+
+.slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial .slide__buttons.main-buttons {
+  justify-content: flex-start !important;
+  margin-left: 0;
+  margin-right: 0;
+}
+.slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial .slide__buttons.main-buttons .main-buttons__item {
+    margin: 0;
+}
+h1.slide__heading.main-heading span {
+    font-family: AvenirNextLTPro-Regular !important;
+    letter-spacing: 0em;
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+  text-transform:capitalize;
+}
+
+.slide__buttons.main-buttons .main-buttons__item a {
+    font-size: 20px !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+body.cc-scrolling-disabled {
+    height: 100%;
+    overflow: auto !important;
+}
+#anonymous-copenhagen-official-online-shop .site-header--transparent:hover{
+  border-top:1px solid #222;
+}
+#anonymous-copenhagen-official-online-shop #PageContainer{
+  margin-top:-31px;
+}
+.template-product ol.flickity-page-dots {
+    display: none;
+}
+button.footer-title__button{
+  font-family: AvenirNextLTPro-Demi;
+  font-size: 10px !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+header.site-header{
+  border-top:1px solid #222;
+}
+#anonymous-copenhagen-official-online-shop header.site-header{
+  border-top:0px solid #222;
+}
+.collection__sticky-bar{
+  background:transparent;
+}
+#anonymous-copenhagen-official-online-shop header.site-header{
+  border-top:1px solid #fff;
+}
+#anonymous-copenhagen-official-online-shop .hovered .top-bar{
+  border-bottom:0px solid #222;
+}
+#anonymous-copenhagen-official-online-shop .hovered .site-header--transparent{
+  border-top:1px solid #222;
+}
 h1.slide__heading.main-heading, h1.slide__heading.main-heading * {
    font-weight: 400 !important;
     margin: 0;
@@ -13,16 +186,28 @@ h1.slide__heading.main-heading, h1.slide__heading.main-heading * {
     text-transform: uppercase;
     -webkit-font-smoothing: subpixel-antialiased;
 }
-
-h1.slide__heading.main-heading + .slide__buttons.main-buttons.appco_bg {
+.shopify-section.hovered .top-bar {
+    background: #f9f7f5 !important;
+}
+#anonymous-copenhagen-official-online-shop .shopify-section.hovered .top-bar__text,
+#anonymous-copenhagen-official-online-shop .shopify-section.hovered button.localization-btn,
+#anonymous-copenhagen-official-online-shop .shopify-section.hovered span.localization-span,
+#anonymous-copenhagen-official-online-shop .shopify-section.hovered button.localization-btn
+{
+    color: #222;
+}
+#anonymous-copenhagen-official-online-shop .shopify-section.hovered .chatNow a {
+    color: #222 !important;
+}
+h1.slide__heading.main-heading + .slide__buttons.main-buttons {
     margin-top: 0;
 }
 
-h1.slide__heading.main-heading + .slide__buttons.main-buttons.appco_bg .main-buttons__item.appco_bg {
-    margin-top: 0;
+h1.slide__heading.main-heading + .slide__buttons.main-buttons .main-buttons__item {
+    margin-top: 1px;
 }
 
-h1.slide__heading.main-heading + .slide__buttons.main-buttons.appco_bg .main-buttons__item.appco_bg a.slide__btn.btn.btn--text {
+h1.slide__heading.main-heading + .slide__buttons.main-buttons .main-buttons__item a.slide__btn.btn.btn--text {
     padding: 0;
     color: white !important;
     background: transparent !important;
@@ -32,7 +217,7 @@ letter-spacing: 0em;
 font-size: 12px;
 }
 
-.slide__text__container.appco_bg .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial.appco_bg {
+.slide__text__container .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial {
     padding-bottom: 0;
     padding-right: 40px;
 }
@@ -214,16 +399,29 @@ span.select-popout__value,
     display: flex;
     flex-direction: row;
     white-space: nowrap;
-  gap: 5px;
+  gap: 15px;
     align-items: center;
+  margin-right:10px;
 }
-.side-pair-view span {
+.template-collection .shopify-section.transparent-header {
+    display: none;
+}
+.side-pair-view span.current a {
+    font-family: AvenirNextLTPro-Regular;
+  color: #222 !important;
+}
+.side-pair-view span, .side-pair-view span a {
     font-size: 12px;
     cursor: pointer;
+    font-family: AvenirNextLTPro-Regular;
+    color: #7e7e82;
+    letter-spacing: 0em;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
 }
 .side-pair-view span.current {
-    text-decoration: underline;
-    text-underline-offset: 6px;
+    color: #222 !important;
+    font-family: 'AvenirNextLTPro-Medium';
 }
 .collection__sticky-bar{
     flex-direction:row;
@@ -1223,7 +1421,6 @@ label {
     font-family: 'Cormorant Garamond';
 }
 
-.mosaic__item__heading,
 .text__heading p,
 .products-list__nav__button,
 .tab-collections .section__heading,
@@ -1305,7 +1502,9 @@ p.mosaic__item__subheading.subheading-text:hover {
 .product__block.standard__app {
     min-height: 18px;
 }
-
+.product_block.plateOuter.onCollectionPage.desktop-only{
+  right:0;
+}
 .product-grid-item__inner:hover .product_block.plateOuter.onCollectionPage {
     display: block;
     transition: 1s;
@@ -1314,13 +1513,16 @@ p.mosaic__item__subheading.subheading-text:hover {
 .product_block.plateOuter.onCollectionPage ul.related-products.colorPlate {
     flex-wrap: wrap;
 }
-
+.colorPlate .image.currentProduct a:before{
+  height: 12px !important;
+    width: 12px !important;
+}
 .product_block.plateOuter.onCollectionPage ul.related-products.colorPlate .image a {
     display: inline-block !important;
-    height: 18px;
-    width: 18px !important;
+    height: 8px;
+    width: 8px !important;
     border-radius: 100%;
-    border: 2px solid #f7f7f7;
+    border: 2px solid transparent;
 }
 
 .footerLogo img {
@@ -1844,7 +2046,7 @@ div#yt-video.product-grid-item .product__media__outer video {
 .primeBDiscount {
     display: flex;
     justify-content: space-between;
-  margin-right:10px;
+  margin-right:15px;
 }
 
 .nav-search__close {
@@ -2138,36 +2340,9 @@ div#myModalCz_iframe .modal-content-cz {
 }
 
 #shopify-section-announcement-bar {
-    /* position: relative */
-      position: fixed !important;
-    top: 0;
-    width: 100%;
-    opacity: 1;
-    z-index: 9;
-    border-bottom: 1px solid #fafafa;
-}
-.top-bar__slider:hover {
-    background: #f8f6f5 !important;
+    position: relative
 }
 
-.top-bar__slider:hover .top-bar__text {
-    color: #222;
-}
-
-
-div#shopify-section-announcement-bar:hover .chatnow {
-    color: #222;
-}
-
-div#shopify-section-announcement-bar:hover .chatNow a {
-    color: #222 !important;
-}
-
-
-
-#Announcement--announcement-bar .top-bar:hover .localization-selector .localization-btn {
-    color: #222 !important;
-}
 .homeCollection .wrapper {
     padding: 0;
 }
@@ -2964,7 +3139,10 @@ footer.site-footer {
     -webkit-font-smoothing: antialiased;
     font-family: 'AvenirNextLTPro-Regular';
     letter-spacing: 0em;
-    font-size: 13px;
+    font-size: 12px;
+}
+.footer-blocks .footer-block p.footer-title.h5.cz {
+    margin-bottom: 30px;
 }
 
 .footer-title__button,
@@ -2972,17 +3150,17 @@ footer.site-footer {
     font-size: 14px;
 }
 
-button.footer-title__button,
 .footer-blocks .footer-block .footer-title {
-    font-family: 'AvenirNextLTPro-Demi';
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-size: 12px;
-    -webkit-font-smoothing: auto;
+font-family: AvenirNextLTPro-Demi;
+font-size: 10px;
+letter-spacing: .12em;
+text-transform: uppercase;
+margin-bottom: 14px;
+-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .footer-blocks .footer-block .footer-title {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
 }
 
 footer.site-footer>.footer-content.wrapper {
@@ -3057,7 +3235,7 @@ footer.site-footer>.footer-content.wrapper+.footerSet .footer-content.wrapper:la
 .footer-copyright {
     -webkit-font-smoothing: antialiased;
     font-family: AvenirNextLTPro-Regular;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0em;
 }
 
@@ -3174,7 +3352,7 @@ h2#currency-heading {
     margin: 0;
     -webkit-font-smoothing: antialiased;
       font-family: 'AvenirNextLTPro-Regular';
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0em;
 }
 
@@ -3184,6 +3362,7 @@ h2#currency-heading {
     max-width: 100px;
     -webkit-font-smoothing: antialiased;
       cursor: pointer;
+  font-size:12px;
   
 }
 
@@ -3393,7 +3572,7 @@ span.cart-count:empty {
 }
 
 .homeCollection {
-    padding-top: 20px;
+    padding-top: 0px;
 }
 
 .mosaic__grid--flex .mosaic__item--1,
@@ -3402,7 +3581,8 @@ span.cart-count:empty {
 }
 
 .mosaic__grid--auto .mosaic__item {
-    min-height: 490px;
+    min-height: 800px;
+  padding:0;
 }
 
 /* .homeFeaturedCollection .product-grid-item__image{
@@ -3471,12 +3651,14 @@ span.cart-count:empty {
 
 div .product-info {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
-
+.top-bar__text {
+    padding-top: 3px !important;
+}
 .ancBar {
     position: relative;
-    font-size: 11px !important;
+    font-size: 12px !important;
     letter-spacing: 0em;
   font-family: 'AvenirNextLTPro-Regular';
 }
@@ -3677,7 +3859,6 @@ div .product-info {
 
 body .homeHeading,
 .slide__heading.main-heading,
-.mosaic__item__heading,
 .homeFeaturedCollection .section__heading,
 .homeProductList .section__heading,
 .productPageGivia .section__heading,
@@ -4196,13 +4377,13 @@ body .cz-img {
     font-size: 12px
 }
 
-.colorPlate .image a {
+/* .colorPlate .image a {
     display: inline-block !important;
     height: 27px;
     width: 27px !important;
     border-radius: 100%;
     border: 3px solid #ffffff;
-}
+} */
 
 .colorPlate .image {
     padding: 1px;
@@ -4229,9 +4410,10 @@ div .cz-price-notice {
     display: flex;
     list-style: none;
     margin: 7px 0 0;
-    padding: 0 0 10px 0;
+    padding: 2px 5px;
     flex-wrap: nowrap;
     overflow: auto;
+  gap:8px;
 }
 
 .colorPlate::-webkit-scrollbar,.primeBadges::-webkit-scrollbar  {
@@ -4539,10 +4721,56 @@ div .stamped-pagination .page.active {
 
 a.product-grid-item__title {
     max-width: 100%;
-    font-family: 'OGG-BOLD';
-    letter-spacing: 0.04em;
+    font-family: AvenirNextLTPro-Medium;
+    letter-spacing: 0em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px;
+  padding-left:15px;
 }
-
+.product-grid-item__image{
+  margin-bottom:15px;
+}
+.product-grid-item .primebDesktop > div{
+  padding: 0 0px 0px 15px !important;
+}
+.product-grid-item__info{margin-bottom: 10px;}
+a.product-grid-item__price.price s{margin-right:0px; margin-left:10px;    color: #7e2825;}
+.available-attributes b {
+    font-family: 'AvenirNextLTPro-Demi';
+    letter-spacing: 0em !important;
+    -webkit-font-smoothing: antialiased !important;
+    font-size: 10px;
+  font-style: normal !important;
+  color:#222;
+}
+p.disCZ {
+    font-family: AvenirNextLTPro-Demi;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    -webkit-font-smoothing: subpixel-antialiased;
+    margin-top: 2px;
+  font-style: normal !important;
+  color: #7e2825;
+}
+.template-collection .badgetitle.primebText {
+    font-family: AvenirNextLTPro-regular;
+    letter-spacing: 0em;
+    -webkit-font-smoothing: antialiased;
+    font-size: 12px !important;
+}
+a.product-grid-item__price.price {
+    padding-right: 15px;
+    color: #222222;
+    flex-direction: row-reverse;
+    white-space: nowrap;
+    font-family: AvenirNextLTPro-Demi;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    -webkit-font-smoothing: subpixel-antialiased;
+    margin-top: 2px;
+}
 .product-single__wrapper .product-single__media-slider.flickity-enabled.is-draggable,
 .product-single__wrapper .product-single__media--image,
 .product-single__media--image-height,
@@ -4551,7 +4779,20 @@ a.product-grid-item__title {
 .product-single__wrapper .flickity-viewport {
     height: 100% !important;
 }
-
+@media (max-width: 1440px) {
+  .grid.five .primeBDiscount{
+    display:none;
+  }
+  .grid.five .product-grid-item:hover .ContentMg-border {
+        display: none !important;
+    }
+  .grid.five a.product-grid-item__price.price s{
+    display:block;
+  }
+  .grid.five  a.product-grid-item__price.price{
+        text-align:right;
+      }
+}
 @media (min-width: 1440px) {
     .homeFeaturedCollection .featured-collection__container {
         width: 85%;
@@ -4569,11 +4810,29 @@ a.product-grid-item__title {
         width: calc((var(--wrapper-width) - var(--grid-gutter)*3)/4.3);
     }
 }
-
+ @media (max-width: 1340px) {
+  .primeBDiscount{
+    display:none;
+  }
+  .product-grid-item:hover .ContentMg-border {
+        display: none !important;
+    }
+  a.product-grid-item__price.price s{
+    display:block;
+  }
+   a.product-grid-item__price.price{
+        text-align:right;
+      }
+}
 @media (hover: hover) {
     .mosaic__item__heading {
-        opacity: 0;
+        opacity: 1 !important;
         transition: all .5s ease-in-out;
+      font-family: AvenirNextLTPro-Regular !important;
+        letter-spacing: 0em;
+        font-size: 20px !important;
+        -webkit-font-smoothing: antialiased;
+        text-decoration: unset;
     }
 
     .mosaic .mosaic__item__inner:hover .mosaic__item__heading {
@@ -4833,8 +5092,8 @@ span.limoniapps-discountninja-shortcode.limoniapps-discountninja-shortcode-origi
     content: "";
     position: absolute;
     border: 1px solid black;
-    left: -2px;
-    top: -2px;
+    left: -4px;
+    top: -4px;
     border-radius: 100px;
 }
   
@@ -5387,7 +5646,6 @@ chatbutton {
 .top-bar {
     min-height: 31px;
     height: 30px;
-  background-color:transparent;
 }
 
 .footerContactUs a.online-status:hover {
@@ -5396,7 +5654,7 @@ chatbutton {
 }
 
 .footerContactUs a.online-status {
-    font-size: 15px;
+
     color: #fff;
     display: block;
     -webkit-font-smoothing: antialiased;
@@ -5405,7 +5663,7 @@ chatbutton {
     transition: all .3s ease-in-out;
     text-decoration-color: #fff;
     font-family: 'AvenirNextLTPro-Regular';
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 0em;
 }
 
@@ -5415,7 +5673,63 @@ chatbutton {
 }
 
 @media (max-width: 767px) {
-.slide__text__container.appco_bg .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial.appco_bg {
+  .viewBy{
+    display: none;
+  }
+  .product-grid-item__image {
+    margin-bottom: 10px;
+}
+  a.product-grid-item__title {
+        
+        margin-left: 10px;
+    }
+   a.product-grid-item__price.price{
+        padding-right:10px;
+      }
+  .collection__filters{
+    display:block;
+  }
+  .colorPlate{
+    gap:0;
+  }
+  .collection__filters{
+    top:160px;
+  }
+  .template-collection .wrapper.wrapper--full{
+    padding-top:30px !important;
+  }
+  .collection__filters__toggle{
+    visibility:hidden;
+  }
+  .product_block.plateOuter.onCollectionPage{
+    display:block !important;
+    right:0;z-index: 9;margin:0;padding:0;
+  }
+  .slide__text__container .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial {
+    gap: 50px;
+}
+  .template-collection .wrapper.wrapper--full{
+    padding: 0 20px;
+  }
+  div#CollectionStickyBar{
+      padding:0;
+  }
+  a.product-grid-item__title {
+      padding: 0;
+  }
+  .product-grid-item .primebDesktop>div {
+    padding: 0 !important;
+}
+  .cz-paginate .btnBox {
+    padding: 0;
+}
+  .shopify-section .top-bar__text a.online-status {
+    color: #222 !important;
+}
+  #anonymous-copenhagen-official-online-shop .shopify-section .top-bar__text a.online-status {
+    color: #f5f5f5 !important;
+}
+.slide__text__container .slide__text__wrapper.slide__text__wrapper--normal.backdrop--radial {
     padding-bottom: 40px;
     padding-right: 30px;
 }
@@ -5426,6 +5740,9 @@ chatbutton {
   .product__block.standard__app:nth-child(3) {
     display:none;
 }
+   .narrow-ul {
+      max-width: 115px;
+    }
   .detailstext.product__block{
         padding-bottom:20px;
 }
@@ -6340,4 +6657,113 @@ div#cart-drawer h3,
 
 .cart__widget .cart__field--textarea {
     margin-bottom: 10px;
+}
+@media screen and (max-width: 580px) {
+  .template-index header.site-header {
+        background: transparent !important;
+    }
+  #anonymous-copenhagen-official-online-shop.has-scrolled.template-index header.site-header {
+        background: #f5f5f5 !important
+    }
+  #anonymous-copenhagen-official-online-shop.has-scrolled  .top-bar{
+    position:relative;
+  }
+   #anonymous-copenhagen-official-online-shop .top-bar{
+    border-bottom:1px solid #fafafa;
+     background:transparent !important;
+     color:#f5f5f5;
+  }
+  #anonymous-copenhagen-official-online-shop .top-bar .top-bar__text span{
+    color:#f5f5f5;
+  }
+  #anonymous-copenhagen-official-online-shop.template-index h1.logo > a.logo__image-link.logo__image-link--home {
+        display: block;
+    }
+  #anonymous-copenhagen-official-online-shop.template-index h1.logo > a.logo__image-link.logo__image-link--other {
+        display: none!important;
+    }
+  #anonymous-copenhagen-official-online-shop.has-scrolled h1.logo > a.logo__image-link.logo__image-link--other { display: block!important;}
+  #anonymous-copenhagen-official-online-shop.has-scrolled h1.logo > a.logo__image-link.logo__image-link--home {display: none;}
+  #anonymous-copenhagen-official-online-shop.template-index a.mobile-menu__button svg * {
+        fill: #fff !important;
+    }
+  #anonymous-copenhagen-official-online-shop.has-scrolled a.mobile-menu__button svg * {
+     fill: #222 !important;
+}
+  div#shopify-section-header {
+    border-bottom: 0px solid #f5f5f5;
+}
+  .product__selectors .select-popout .select-popout__list {
+    border-top: 1px solid #222 !important;
+}
+  #anonymous-copenhagen-official-online-shop.template-index button.mobile-menu__button.mbHam{
+   display:none !important;
+  }
+  #anonymous-copenhagen-official-online-shop.has-scrolled button.mobile-menu__button.mbHam{
+    display:block!important;
+  }
+  #anonymous-copenhagen-official-online-shop.has-scrolled button.mobile-menu__button.mbHam.homeCZ{
+     display:none!important;
+  }
+  #anonymous-copenhagen-official-online-shop.template-index button.mobile-menu__button.mbHam.homeCZ{
+    display:block!important;
+  }
+  button.mobile-menu__button.mbHam.homeCZ{
+    display:none!important;
+  }
+  #anonymous-copenhagen-official-online-shop .site-header--transparent:hover{
+  border-top:1px solid #fafafa;
+}
+  .menuOpened div#shopify-section-header {
+    background: white;
+}
+  .menuOpened div#shopify-section-header button.mobile-menu__button.mbHam.homeCZ.opened {
+    display: none !important;
+  }
+
+/* #anonymous-copenhagen-official-online-shop.menuOpened div#shopify-section-header button.mobile-menu__button.mbHam {
+    display: block !important;
+} */
+  .menuOpened div#Announcement--announcement-bar .top-bar {
+    background: #fff !important;
+}
+      #anonymous-copenhagen-official-online-shop.template-index.has-scrolled button.mobile-menu__button.mbHam.homeCZ {
+        display: none !important;
+    }
+#anonymous-copenhagen-official-online-shop.has-scrolled div#shopify-section-header {
+    border-bottom: 0px solid;
+}
+  #anonymous-copenhagen-official-online-shop.menuOpened div#Announcement--announcement-bar .top-bar .top-bar__slider {
+    display: none;
+}
+     .menuOpened div#Announcement--announcement-bar div#shopify-section-header {
+        border-bottom: 1px solid #fff;
+    }
+  .menuOpened header.site-header {
+    background: #fff;
+}
+  .template-product div#shopify-section-header{
+    border-bottom: 0px solid #fff;
+  }
+  h3.mosaic__item__heading.mosaic__item__heading--underline.h2 {
+    font-family: 'AvenirNextLTPro-Regular' !important;
+    font-size: 20px !important;
+}
+  .mosaic__item.mosaic__item--2 .mosaic__item__content {
+    align-items: flex-end;
+}
+  .slide__image__container.slide__image__container--desktop {
+    display: none;
+}
+  .slide__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transform: scale(var(--scale));
+}
 }

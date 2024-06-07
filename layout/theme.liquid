@@ -2,6 +2,7 @@
 <html class="no-js no-touch" lang="{{ request.locale.iso_code }}"> 
 <head>
 	{% render 'pandectes-rules' %}
+	
   {% render "header_file" %}
 <script type="lazyload2" data-src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="lazyload2">
@@ -23,7 +24,21 @@
       document.documentElement.style.setProperty('--limo-height', elementHeight + 'px');
         toggleBodyClass();
       });
+
       });
+  $(document).ready(function(){
+  
+    $('.filterCenter a').on('click', function(event){
+        event.preventDefault(); // Prevent default action of the link
+        if ($(window).width() < 768) {
+         
+             $('.collection__filters').toggleClass('collection__filters--visible');
+        }else{
+              $('.collection__filters').toggle('1000');
+        }
+    });
+    
+});
 </script>
 	
 	
@@ -548,11 +563,12 @@ function aTooltip() {
 }
 
 function drowerHeight(){ 
-  let headerHeight = $("#shopify-section-header").height()+$("#Announcement--announcement-bar").height() - 1 + "px";
+  let headerHeight = $("#shopify-section-header").height()+ 31 - 1 + "px";
   let anHeight = $("#shopify-section-header").height() - 1 + "px";
-  let anbarHeight = $("#Announcement--announcement-bar").height()   + "px";
-
+  let anbarHeight = "31px";
+  
   var scrollPos = $(window).scrollTop();
+  
   if (scrollPos > 5) {
     $("#nav-drawer").css({"height": "calc(100vh - "+ anHeight + ")", "top": anHeight});
      if ($(window).width() > 768) {
@@ -705,13 +721,23 @@ setTimeout(function() {
 <script type="lazyload2">
 $(".mbHam").click(function(){
   drowerHeight();
+  $('.logo').show();
   $("body").toggleClass("menuOpened");
   $(".drawer").toggleClass("is-open")
   $(".drawer__overlay").hide();
   $(this).toggleClass("opened");
   $("body").toggleClass("no-scroll");
+  $("#anonymous-copenhagen-official-online-shop button.mobile-menu__button.mbHam.homeCZ").removeClass('opened');
 })
-
+$("#anonymous-copenhagen-official-online-shop button.mobile-menu__button.mbHam.homeCZ").click(function(){
+  $(this).hide(); 
+  $('.logo').hide();
+  $("button.mobile-menu__button.mbHam").toggle();
+  $(this).toggleClass("opened");
+  $("#anonymous-copenhagen-official-online-shopbutton.mobile-menu__button.mbHam.homeCZ").removeClass('opened');
+  $("button.mobile-menu__button.mbHam").toggleClass('opened');
+  $("body").toggleClass("no-scroll");
+})
 
 </script>
 {% include 'swymSnippet' %}
@@ -743,7 +769,7 @@ $(".mbHam").click(function(){
    <script>
       	var site_nav_link_burger = true;
       	document.addEventListener("DOMContentLoaded", function() {
-            var icon_menu = document.querySelector(".mbHam");
+            var icon_menu = document.querySelector(".homeCZ");
             icon_menu.addEventListener("click", function() {
       			if(site_nav_link_burger) {
       				event.preventDefault();
@@ -797,6 +823,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Stamped - End script -->
   
   <!--   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
+
   {% comment %}
   {% render 'emarket' %}
   {% endcomment %}

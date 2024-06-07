@@ -1,4 +1,24 @@
-<nav class="breadcrumbs">
+{%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+{%- assign queryString = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | replace:'\/','/' | replace:'%20',' ' | replace:'\u0026','&' -%}
+
+{%- assign viewBValue = '' -%}
+{%- if queryString contains 'viewBy=' -%}
+    {%- assign viewBValue = queryString | split: 'viewBy=' | last | split: '&' | first -%}
+{%- endif -%}
+
+ <div class="viewBy">
+  <span class="text">View By</span>
+  <span {% if viewBValue == 'three' %} class="current"{% endif %}>
+    <a href="{{ request.url }}?viewBy=three">3</a>
+  </span> 
+  <span {% if viewBValue == 'four' or viewBValue == blank %} class="current"{% endif %}>
+    <a href="{{ request.url }}?viewBy=four">4</a>
+  </span>
+  <span {% if viewBValue == 'five' %} class="current"{% endif %}>
+    <a href="{{ request.url }}?viewBy=five">5</a>
+  </span>
+</div> 
+<nav class="breadcrumbs" style="display:none;">
   <a href="{{ routes.root_url }}" title="{{'collections.breadcrumbs.back_to_home' | t }}" class="breadcrumbs__link">
     {{- 'collections.breadcrumbs.home' | t -}}
   </a>
@@ -42,9 +62,11 @@
 {%- if queryString contains 'view=' -%}
     {%- assign viewValue = queryString | split: 'view=' | last | split: '&' | first -%}
 {%- endif -%}
-
+<div class="filterCenter">
+  <a href="javascript:void(0);">Filters</a>
+</div>
 <div class="side-pair-view">
-  <span id="sideselect"{% if viewValue != 'pair' %} class="current"{% endif %}><a href="{{ request.url }}?view=side">Side View</a></span> 
-  <span>/</span>
-  <span id="pairselect"{% if viewValue == 'pair' %} class="current"{% endif %}><a href="{{ request.url }}?view=pair">Pair View</a></span>
+  <span class="current" >Image angle</span>
+  <span id="sideselect"{% if viewValue != 'pair' %} class="current"{% endif %}><a href="{{ request.url }}?view=side">1</a></span> 
+  <span id="pairselect"{% if viewValue == 'pair' %} class="current"{% endif %}><a href="{{ request.url }}?view=pair">2</a></span>
 </div>

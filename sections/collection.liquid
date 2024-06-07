@@ -682,10 +682,17 @@
                   assign size_mobile = 'mobile--one-half'
               endcase
             -%}
+            {%- capture contentForQuerystring -%}{{ content_for_header }}{%- endcapture -%}
+            {%- assign queryString = contentForQuerystring | split:'"pageurl":"' | last | split:'"' | first | replace:'\/','/' | replace:'%20',' ' | replace:'\u0026','&' -%}
+            
+            {%- assign viewBValue = '' -%}
+            {%- if queryString contains 'viewBy=' -%}
+                {%- assign viewBValue = queryString | split: 'viewBy=' | last | split: '&' | first -%}
+            {%- endif -%}
             {%- if collection_count > 0 -%}
               {%- if collection.products_count > 0 -%}
                 <div
-                  class="grid"
+                  class="grid {{ viewBValue }}"
                   {% if enable_infinity_scroll %}
                     id="AjaxinateLoop"
                   {% endif %}

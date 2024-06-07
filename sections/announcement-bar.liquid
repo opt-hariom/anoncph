@@ -8,7 +8,7 @@
     </b>
   </div>
  {% endif %} 
-<span class="closeTopBar">{% render 'icon-close' %}</span>
+<!-- <span class="closeTopBar">{% render 'icon-close' %}</span> -->
 
 {% comment %}
   Only for assigning the country to a inserting the current country into the specific country message
@@ -956,4 +956,33 @@
       announcementBarText.innerHTML = audMessage.replace(/['"]+/g, '');
       break;
   }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var header = document.getElementById('shopify-section-header');
+    var announcementBar = document.getElementById('shopify-section-announcement-bar');
+
+    header.addEventListener('mouseenter', function() {
+        // Mouse enter: Add hovered class to #shopify-section-announcement-bar
+        announcementBar.classList.add('hovered');
+    });
+
+    header.addEventListener('mouseleave', function() {
+        // Mouse leave: Remove hovered class from #shopify-section-announcement-bar
+        announcementBar.classList.remove('hovered');
+    });
+
+    announcementBar.addEventListener('mouseenter', function() {
+        // Mouse enter: Add hovered class to #shopify-section-announcement-bar
+        announcementBar.classList.add('hovered');
+        header.classList.add('hovered');
+    });
+
+    announcementBar.addEventListener('mouseleave', function() {
+        // Mouse leave: Remove hovered class from #shopify-section-announcement-bar
+        announcementBar.classList.remove('hovered');
+        header.classList.remove('hovered');
+    });
+});
 </script>

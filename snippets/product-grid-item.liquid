@@ -105,7 +105,7 @@ data-limoniapps-discountninja-product-tags="{{ product.tags | join: ',' | escape
 class="product-grid-item__inner">
 {%- if product.metafields.custom.style_reference and product.metafields.custom.style_reference != 'Last chance!' -%}
   {%- if product.metafields.custom.color and product.metafields.custom.color != '' -%}
-    <div class="product_block plateOuter onCollectionPage desktop-only">
+    <div class="product_block plateOuter onCollectionPage">
       {%- assign related = product.metafields.custom.related_to.value | join:", " -%}
       {%- assign related_to = related | split:', ' -%}
       {%- assign number_of_related_products_to_show = 20 -%}
@@ -480,10 +480,10 @@ class="product-grid-item__inner">
       {%- endif -%}
 
     </div>
-      <div class="primeBDiscount">
+      <div class="primeBDiscount" style="min-height:26px;">
       {%- render 'primeb', product: product, hideAssets:'1', primebGroup:'1', primebOuterClass:'prime-d-block', primebOuterStyle:'text-align: left;', primebInnerStyle:'', primebInnerClass: 'prime-d-inline-block prime-mb-1 prime-mr-1' -%}
       {%- if discount_percentage > 0 -%}
-        <p class="disCZ" style="margin: 0; font-family: Cormorant, serif; font-size: 12px; font-style: italic; color: #7e7e82;">- {{ discount_percentage | round: 2 }}%</p>
+        <p class="disCZ" style="margin: 0;">- {{ discount_percentage | round: 2 }}%</p>
       {%- endif -%}
     </div>
 <div class="ContentMg-border">
@@ -498,75 +498,7 @@ class="product-grid-item__inner">
               {%- endfor -%}
           </div>
         </div>
-{%- if product.metafields.custom.style_reference and product.metafields.custom.style_reference != 'Last chance!' -%}
-  {%- if product.metafields.custom.color and product.metafields.custom.color != '' -%}
-    <div class="product_block plateOuter forMobile">
-      {%- assign related = product.metafields.custom.related_to.value | join:", " -%}
-      {%- assign related_to = related | split:', ' -%}
-      {%- assign number_of_related_products_to_show = 20 -%}
-      {%- assign image_size = 'small' -%}
-      {%- assign heading = 'Other Options' -%}
-      {%- assign ccode =  product.metafields.custom.color | split: "#" -%}
-      {%- if product.metafields.custom.color contains "|" -%}
-        {%- assign ccodeCZ = product.metafields.custom.color | split: "|" -%}
-        {%- assign ccode =  ccodeCZ[0] | split: "#" -%}
-        {%- assign ccode2 =  ccodeCZ[1] | split: "#" -%}                  
-      {%- else -%}                  
-        {%- assign ccode =  product.metafields.custom.color | split: "#" -%}
-      {%- endif -%}
-      {%- assign image = product.featured_image -%}
-      {%- assign counter = '' -%}
-      <ul class="related-products colorPlate">
-        {%- if product.metafields.custom.style_reference and product.metafields.custom.style_reference != '' -%}
-          <li>
-            <div class="image currentProduct">
-              <a data-price="{{ product.price | money }}" data-compare="{{ product.compare_at_price | money }}" data-discount="{{discount_percentage}}" data-image="{{ product.featured_image | img_url: '1024x' }}" style="{%- if ccode2 -%}background: linear-gradient(to right, #{{ ccode[1] }} 0%, #{{ ccode[1] }} 50%, #{%- assign ccode2_stripped = ccode2[1] | strip -%}{{ ccode2_stripped }} 50%, #{%- assign ccode2_stripped = ccode2[1] | strip -%}{{ ccode2_stripped }} 100%);{%- else -%}background-color: #{{ ccode[1] }};{%- endif -%}" href="javascript:void(0);" data-url="{{ product.url | within: collections.all }}" title="{{ product.metafields.custom.material | escape }} {{ ccode[0] }}">               
-              </a>
-            </div>
-          </li>
-          {%- paginate collections.all.products by 1000 -%}
-          {%- for prod in collections.all.products -%}
-            {%- if prod.metafields.custom.style_reference == product.metafields.custom.style_reference and prod.id != product.id and counter.size < number_of_related_products_to_show -%}
-              {%- if prod.metafields.custom.color contains "|" -%}
-                {%- assign color_swatchCZ = prod.metafields.custom.color | split: "|" -%}
-                {%- assign color_swatch =  color_swatchCZ[0]  | split: "#" -%}
-                {%- assign color_swatch2 =  color_swatchCZ[1]  | split: "#" -%}                  
-              {%- else -%}                  
-                {%- assign color_swatch =  prod.metafields.custom.color  | split: "#" -%}
-                {%- assign color_swatch2 = nil -%}
-              {%- endif -%}
-              {%- assign hexacode = color_swatch[1] | remove:" " -%}
-              {%- assign original_price_prod = prod.compare_at_price | divided_by: 100 -%}
-              {%- assign discounted_price_prod = prod.price | divided_by: 100 -%}
-              {%- assign discount_percentage_prod = 0 -%}
-              {%- if original_price_prod > discounted_price_prod -%}
-              {%- assign discounted_price_prod = original_price_prod | minus: discount_percentage_prod | times: 100 | divided_by: original_price_prod -%}
-              {%- endif -%}
-              {%- if  hexacode !='' -%}
-              <li>
-                <div class="image {{ color_swatch[1] }}">
-                  <a 
-                    data-url="{{ prod.url | within: collections.all }}" 
-                    data-image="{{ prod.featured_image | img_url: '1024x' }}" 
-                    data-price="{{ prod.price | money }}" 
-                    data-compare="{{ prod.compare_at_price | money }}" 
-                    data-discount="{{discount_percentage_prod}}" 
-                    style="{%- if color_swatch2 -%}background: linear-gradient(to right, #{{ color_swatch[1] }} 0%, #{{ color_swatch[1] }} 50%, #{%- assign color_swatch2_stripped = color_swatch2[1] | strip -%}{{ color_swatch2_stripped }} 50%, #{%- assign color_swatch2_stripped = color_swatch2[1] | strip -%}{{ color_swatch2_stripped }} 100%);{%- else -%}background-color: #{{ color_swatch[1] }};{%- endif -%}"   
-                    href="javascript:void(0);" 
-                    title="{{ prod.metafields.custom.material | escape }} {{ color_swatch[0] }}">               
-                  </a>
-                </div>
-              </li>
-      {%- endif -%} 
-               {%- capture counter -%}{{ counter }}*{%- endcapture -%}
-              {%- endif -%}   
-           {%- endfor -%}
-          {%- endpaginate -%}
-        {%- endif -%}
-      </ul>
-    </div>
-  {%- endif -%}
-{%- endif -%}
+
 </div>
 </div>
 </div>

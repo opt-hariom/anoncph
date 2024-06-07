@@ -5900,12 +5900,14 @@ button.mfp-close {
   min-width: 32px;
   text-align: center;
   color: var(--text);
-  /*background: var(--bg) no-repeat center center/cover;*/
+  background: transparent;
   overflow: hidden;
   font-size: calc(0.75rem * var(--adjust-body));
   line-height: 1.5;
   white-space: nowrap;
-  background-color:transparent !important;
+}
+.top-bar {
+  color: #222 !important;
 }
 .top-bar a {
   display: inline-block;
@@ -9957,9 +9959,11 @@ button.mfp-close {
 }
 .collection__inner .breadcrumbs {
   float: left;
-  margin: 20px 0;
-  width: 100%;
+  margin: 20px 0; 
+  margin-left:10px;
+  /* width: 100%; */
   font-size: calc( 0.875rem * var(--adjust-body));
+  margin-left:10px;
 }
 .collection__inner::after {
   content: "";
@@ -10117,7 +10121,7 @@ button.mfp-close {
 .product-grid-item__info {
   display: grid;
   grid-template-columns: minmax(0, 100%);
-  gap: 5px;
+  gap: 0px;
   align-content: start;
 }
 
@@ -10280,7 +10284,7 @@ button.mfp-close {
   display: block;
   overflow: hidden;
   transform: translate(0);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 .product-grid-item__image .btn--quick {
   opacity: 0;
@@ -17922,7 +17926,6 @@ button.collection__filters__toggle {
   pointer-events: auto;
   transition: opacity 0.3s ease, z-index 0s, visibility 0s linear 0s;
 }
-
 .select-popout__list .sold-out,
 .select-popout__list .unavailable {
   text-decoration: line-through;

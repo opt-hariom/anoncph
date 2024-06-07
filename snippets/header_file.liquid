@@ -1,4 +1,10 @@
-<style id="appco_bg_load">div:not(.appco_bg), section:not(.appco_bg), iframelazy:not(.appco_bg){background-image:none !important;}</style>
+
+	{% if template contains "index" %}
+    	<style id="appco_bg_load">section:not(.appco_bg), iframelazy:not(.appco_bg){background-image:none !important;}</style>
+	{% else %}
+    	<style id="appco_bg_load">div:not(.appco_bg), section:not(.appco_bg), iframelazy:not(.appco_bg){background-image:none !important;}</style>
+	{% endif %}
+
 <script>
 var appco_lazy_load_by_px = 200,
     blank_image_webp_url = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAJCAQAAACRI2S5AAAAEElEQVR42mNkIAAYRxWAAQAG9gAKqv6+AwAAAABJRU5ErkJggg==",
