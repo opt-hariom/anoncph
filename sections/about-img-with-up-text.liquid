@@ -1,0 +1,146 @@
+{%- liquid
+  assign imgg1 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/about5_720x.png?v=1666949921'
+  assign imgg2 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Untitled-1_720x.jpg?v=1666949918'
+  assign imgg3 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/about6_720x.png?v=1666949916'
+  assign imgg4 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/production_720x.jpg?v=1691661757'
+  assign imgg5 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/b-corp-certified_720x.jpg?v=1691661758'
+ 
+   assign image_url_pattern1 = imgg1 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern2 = imgg2 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern3 = imgg3 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern4 = imgg4 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern5 = imgg5 | replace: '_1080x.', '_{width}x.'
+  assign image_widths = '[180, 360, 540, 720, 900, 1080, 1200, 1440, 1800, 2160, 2400]'
+-%}
+<section class="padding-bottomSEc {{ section.settings.sectionClass }}">
+  <div class="sec-container">
+    <div class="leatherCare">
+      <div class="lcLower">
+        
+        <div class="lcLowerPrimary">
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>A certified B Corporation</h3>
+              <p style="margin-top: 10px">Anonymous Copenhagen’s B Corporation certification is not merely a landmark achievement for us; it represents a crucial step in our ongoing journey towards responsible and sustainable fashion. This certification underscores our dedication to ethical business practices and environmental stewardship. But becoming certified is not the end of the journey; rather, it’s an important step that reinforces our commitment to continuous improvement and innovation. Together, we look forward to forging a future where these principles are at the core of everything we do, leading the way in creating a more responsible and sustainable industry.</p>
+              <b style="font-style: normal">Want to learn more about B Corp and our commitment to sustainability? <a href="https://www.anoncph.com/pages/b-corp"><i>Click here.</i></a></b>
+            </section>
+          </div>
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img 
+                class="img-450 lazyload"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern5 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="Untitled-1"
+            data-sizes="auto" /> 
+            </span>
+            </div>
+        </div>
+        <div class="lcLowerPrimary">
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img class="img-450 lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern4 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="about5"
+            data-sizes="auto" />
+            </span>
+          </div>
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Responsible production</h3>
+              <p style="margin-top: 10px">Sustainability is at the heart of our brand. We work to create responsible collections to inspire our customers to invest in pieces that will last for longer, thereby reducing climate impact.</p> 
+              <p style="margin-top: 10px">We are committed to sourcing sustainable materials and to minimize the use of harmful chemicals. One example is our leather production where we have chosen to only work with LWG-certified tanneries, committed to responsible leather production. The leather we use in the entire range is byproducts from the food industry and the leather lining is 100% chrome-free. </p>  
+                </section>
+          </div>
+        </div>
+        
+        <div class="lcLowerPrimary">
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Quality over quantity</h3>
+              <p style="margin-top: 10px">Quality is key. Season after season, we strive to deliver high quality products that last. Caring for the environment, we produce only what’s requested by our clients and own stores. This timely and thorough process secure an absolute minimum of waste.</p>
+              <b style="font-style: normal">Learn more about the quality, the materials we use and how to take care of your shoes to make them last for longer, Check out <a href="https://www.anoncph.com/pages/care"><i>Materials, Quality & Care</i></a></b>
+            </section>
+          </div>
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img 
+                class="img-450 lazyload"  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern2 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="Untitled-1"
+            data-sizes="auto" /> 
+            </span>
+            </div>
+        </div>
+        <div class="lcLowerPrimary">
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img class="img-450 lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern1 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="about5"
+            data-sizes="auto" />
+            </span>
+          </div>
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Heritage craft</h3>
+              <p style="margin-top: 10px">Nestled in the charming town of São João da Madeira in the Northern part of Portugal, Anonymous Copenhagen work with artisans who are internationally renowned for their shoemaking craftsmanship and excellence.</p> 
+              <p style="margin-top: 10px">Dedicated to perfection of each step from cutting, piecing and sticking to assembly and finishing, the entire production process is carried out scrupulously by hand with respect for shoemaking traditions.</p>  
+              <b style="font-style: normal">Learn more about how it’s made? Check out <a href="https://www.anoncph.com/pages/making-a-givia"><i>Making a Givia</i></a>.</b>
+            </section>
+          </div>
+        </div>
+        <div class="lcLowerPrimary" id="Environmental-friendly">
+          
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Environmental-friendly packaging and transportation</h3>
+              <p style="margin-top: 10px">To reduce Co2 when it comes to packaging and transportation, we have taken a number of initiatives.</p> 
+              <p style="margin-top: 10px">All styles are produced in Europe, and we also only use road transportation. To avoid the common back and forth shipping issue, we have invested in local distribution warehouses in main selling territories.</p>  
+              <p style="margin-top: 10px">We have also eliminated single-use plastic from our shoe box packaging, and we only use boxes made from FSC-certified materials. Also, to decrease shipment volumes as much as possible, we have developed packaging made to fit each product perfectly.</p>  
+              <b style="font-style: normal">Learn more about our sustainability initiatives, check out <a href="https://www.anoncph.com/pages/sustainability-environmental-policy-targets"><i>Our Values</i></a>.</b>
+            </section>
+          </div>
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span><img 
+                    class="img-450 lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern3 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="about-6"
+            data-sizes="auto" />
+               </span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "About- Img with up text",
+    "settings": [
+      {
+        "type": "text",
+        "id": "sectionClass",
+        "label": "Secton Class"
+      }
+    ],
+    "presets": [
+      {
+        "name": "About- Img with up text",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

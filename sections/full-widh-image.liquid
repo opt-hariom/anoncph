@@ -1,0 +1,28 @@
+<section class="imageFullSection {{ section.settings.sectionClass }}">
+  <img class="img-450 lazyload" style="width: 100%" 
+ src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+  data-src="{{ section.settings.image | img_url: '1524X' }}" alt="{{ section.settings.image.alt | escape }}" />
+</section>
+{% schema %}
+  {
+    "name": "Img full width",
+    "settings": [
+      {
+        "type": "text",
+        "id": "sectionClass",
+        "label": "Section Class"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Img full width",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

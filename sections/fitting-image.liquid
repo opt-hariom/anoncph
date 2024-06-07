@@ -1,0 +1,60 @@
+{%- liquid
+  assign fitting_img = section.settings.fitting_img
+-%}
+
+{% if fitting_img and fitting_img != '' %}
+  {% assign imageArray = fitting_img | split: ',' %}
+  <section class="style-video-section desktop-only">
+    <div class="style-video">
+      <h2 id="video-title">
+          {% if imageArray.size == 1 %}
+            Fitting image 
+          {% else %}
+            Fitting images
+          {% endif %}
+      </h2>
+        <div class="main-carousel2" data-flickity='{ "cellAlign": "left","pageDots": false, "contain": true,"imagesLoaded": true }'>
+
+      {% for imageUrl in imageArray %}
+        {% assign trimmedImageUrl = imageUrl | strip %}
+         <div class="carousel-cell">
+            <img src="{{ trimmedImageUrl }}"  alt="Fitting image"   >
+          </div>
+      {% endfor %}
+        </div>
+    </div>
+  </section>
+  {{ 'https://cdn.jsdelivr.net/npm/imagesloaded@4.1.4/imagesloaded.pkgd.min.js' | script_tag }}
+
+  <script>
+    // Initialize Flickity with imagesLoaded
+    imagesLoaded('.main-carousel2', function () {
+      var flkty = new Flickity('.main-carousel2', {
+        // Flickity options
+        cellAlign: 'left',
+        pageDots: false,
+        contain: true,
+        imagesLoaded: true
+      });
+    });
+  </script>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Fitting Image",
+  "settings": [
+       {
+        "type": "text",
+        "id": "fitting_img",
+        "label": "Fitting image"
+      }
+    ],
+  "presets": [
+    {
+      "name": "Fitting Image",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+ {%- liquid
+     assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/bcorp-logo_1080x.png?v=1691732161'
+     assign image_url_pattern = imgg| replace: '_1080x.', '_{width}x.'
+     assign image_widths = "[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+    -%}
+<section class="imageFullSection bg-white">
+  <img class="img-450 lazyload" style="width: 100%" 
+        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        data-src="{{ image_url_pattern }}"
+        data-widths="{{ image_widths }}"
+        data-aspectratio="{{ image_aspect_ratio }}"
+        alt="about-4"
+        data-sizes="auto"
+        />
+</section>
+{% schema %}
+  {
+    "name": "Bcorp- Img full width",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Bcorp- Img full width",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

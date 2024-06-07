@@ -1,0 +1,129 @@
+{%- liquid
+  assign heading = section.settings.product_recommendations_heading
+  assign limit = section.settings.limit
+  assign columns = settings.products_per_row_on_desktop
+  assign bg_color = section.settings.bg_color
+  assign wrapper_class = 'wrapper'
+  if section.settings.wrapper == 'full'
+    assign wrapper_class = 'wrapper wrapper--full'
+  endif
+-%}
+
+{%- style -%}
+  {%- if bg_color != 'rgba(0,0,0,0)' and bg_color != '' -%}
+  #RelatedProductsCz--{{ section.id }} { background-color: {{ bg_color }}; }
+    #RelatedProductsCz--{{ section.id }} .product-grid-item {
+      --bg: {{ bg_color }};
+    }
+  {%- endif -%}
+{%- endstyle -%}
+
+<section
+  class="{{ section.settings.sectionClass }} cz_related_block"
+  id="RelatedProductsCz--{{ section.id }}"
+  data-section-type="related-products"
+  data-section-id="{{ section.id }}"
+  data-product-id="{{ product.id }}"
+  data-limit="{{ limit }}"
+  data-columns="{{ columns }}"
+>
+  {% assign related = product.metafields.custom.related_to.value | join: ', ' %}
+  {% assign related_to = related | split: ', ' %}
+  {% assign number_of_related_products_to_show = 8 %}
+
+  <div class="related-products" data-related-products>
+    <div class="{{ wrapper_class }}">
+      {%- if heading != blank -%}
+        <div class="featured-collection__title">
+          <h2 class="featured-collection__heading section__heading h4">{{ heading }}</h2>
+
+          {%- if settings.show_spacer_lines -%}
+            <hr>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+      {% assign counter_related = 0 %}
+
+      <div class="carousel__container">
+        <div class="carousel carousel--inactive carousel--mobile" data-slider data-slider-id="slider--{{ section.id }}">
+          {% for x in related_to %}
+            {% assign xv = x | upcase %}
+            {% paginate collections.all.products by 1000 %}
+              {% for prod in collections.all.products %}
+                {% assign style_ref = prod.metafields.custom.style_reference | upcase %}
+                {% if style_ref == xv and counter_related < number_of_related_products_to_show %}
+                  {%- assign animation_delay = forloop.index0 -%}
+                  {%- render 'product-grid-item', product: prod, carousel: true, animation_delay: animation_delay -%}
+                  {% assign counter_related = counter_related | plus: 1 %}
+                {% endif %}
+              {% endfor %}
+            {% endpaginate %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  {%- if counter_related == 0 -%}
+    <style>
+      .cz_related_block{display:none;}
+    </style>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Related Option Products",
+  "settings": [
+    {
+      "type": "paragraph",
+			"content": "Dynamic recommendations change and improve with time. [Learn more](https://help.shopify.com/en/themes/development/recommended-products)"
+    },
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Section Class"
+    },
+    {
+      "type": "select",
+      "id": "wrapper",
+      "label": "Width",
+      "default": "normal",
+      "options": [
+        { "value": "normal", "label": "Normal" },
+        { "value": "full", "label": "Wide" }
+      ]
+    },
+    {
+			"type":    "range",
+			"id":      "limit",
+			"min":     1,
+			"max":     6,
+			"step":    1,
+			"label":   "Product limit",
+			"default": 4
+		},
+    {
+      "type": "text",
+      "id": "product_recommendations_heading",
+      "label": "Heading",
+      "default": "You May Also Love"
+    },
+    {
+			"type": "header",
+			"content": "Colors"
+		},
+		{
+			"type": "color",
+			"id": "bg_color",
+			"label": "Background"
+		}
+  ],
+"presets": [
+    {
+      "name": "Related Option Products",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}

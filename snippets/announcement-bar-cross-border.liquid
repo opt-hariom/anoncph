@@ -1,0 +1,42 @@
+<style>
+    .localization-selector-wrapper {
+      margin-top: .1rem;
+      margin-left: 3.75rem;
+      position: absolute;
+      z-index: 99;
+    }
+  
+    .localization-selector {
+        display: block;
+    }
+
+    .localization-btn {
+      cursor: initial;
+    }
+
+
+    .localization-span {
+      cursor: pointer;
+      color:#fafafa;
+      text-decoration-color:#fafafa;
+      font-size: 11px!important;
+      font-style: normal!important;
+      font-family: AvenirNextLTPro-Regular;
+    }
+ 
+    @media screen and (max-width: 767px) {
+        .localization-selector {
+            display: none;
+        }
+    }
+</style>
+
+<div class="localization-selector-wrapper">
+    <div class="localization-selector">
+      <button class="localization-btn">
+        {%- form 'localization', class: local_form_class, id: 'LocalizationForm' -%}
+            <span>Shipping to </span><span class="localization-span">{{ form.current_country.name }}</span>
+        {%- endform -%}
+      </button>
+    </div>
+</div>

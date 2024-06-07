@@ -1,0 +1,217 @@
+<section class="sizeGuideSection">
+  <div class="sizeContainer">
+    <div class="sizeModal" style="position: static; display: block">
+      <div class="modal-content-cz" style="border: none; background-color: transparent">
+        <div class="modal-header"></div>
+        <div class="modal-body" style="display: block">
+          <div class="text" style="width: 100%">
+              <h3 class="text-center">Size chart</h3>
+             <p class="text-center"><i>Generally Anonymous Copenhagen uses European standard sizes and run true to size, unless otherwise stated in a style's product description.</i></p>
+             <div class="sizes">
+                <div class="size_labels">
+                   <ul>
+                      <li>EU</li>
+                      <li>UK</li>
+                      <li>USA</li>
+                     <li>-</li>
+                      <li>CM</li>
+                      <li>INCH</li>
+                   </ul>
+                </div>
+                <div class="size_numbers">
+                  <ul>
+                  <li>35</li>
+                  <li>36</li>
+                  <li>37</li>
+                  <li>37.5</li>
+                  <li>38</li>
+                  <li>38.5</li>
+                  <li>39</li>
+                  <li>39.5</li>
+                  <li>40</li>
+                  <li>41</li>
+                  <li>42</li>
+                  <li>43</li>
+                  <li>44</li>
+                  <li>45</li>
+                  <li>46</li>
+               </ul>
+               <ul>
+                  <li>2</li>
+                  <li>3</li>
+                  <li>4</li>
+                  <li>4.5</li>
+                  <li>5</li>
+                  <li>5.5</li>
+                  <li>6</li>
+                  <li>6.5</li>
+                  <li>7</li>
+                  <li>8</li>
+                  <li>9</li>
+                  <li>10</li>
+                  <li>11</li>
+                  <li>12</li>
+                  <li>13</li>
+               </ul>
+               <ul>
+                  <li>4</li>
+                  <li>5</li>
+                  <li>6</li>
+                  <li>6.5</li>
+                  <li>7</li>
+                  <li>7.5</li>
+                  <li>8</li>
+                  <li>8.5</li>
+                  <li>9</li>
+                  <li>10</li>
+                  <li>11</li>
+                  <li>12</li>
+                  <li>13</li>
+                  <li>14</li>
+                  <li>15</li>
+               </ul>
+                <ul>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+                  <li>-</li>
+               </ul>
+               <ul>
+                  <li>22.1</li>
+                  <li>22.8</li>
+                  <li>23.5</li>
+                  <li>23.8</li>
+                  <li>24.1</li>
+                  <li>24.5</li>
+                  <li>24.8</li>
+                  <li>25.2</li>
+                  <li>25.5</li>
+                  <li>26.2</li>
+                  <li>26.9</li>
+                  <li>27.5</li>
+                  <li>28.2</li>
+                  <li>28.9</li>
+                  <li>29.6</li>
+               </ul>
+               <ul>
+                  <li>8.7</li>
+                  <li>9.0</li>
+                  <li>9.3</li>
+                  <li>9.4</li>
+                  <li>9.5</li>
+                  <li>9.6</li>
+                  <li>9.8</li>
+                   <li>9.9</li>
+                  <li>10.0</li>
+                  <li>10.3</li>
+                  <li>10.6</li>
+                  <li>10.8</li>
+                  <li>11.1</li>
+                  <li>11.4</li>
+                  <li>11.6</li>
+               </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  const enteredSize = document.querySelector("#enteredSize");
+  const resultSize = document.querySelector("#resultSize");
+  const cmINCH = document.querySelector("#cmINCH");
+  const euUKusa = document.querySelector("#euUKusa");
+  const showCMiNCH = document.querySelector("#showCMiNCH");
+  const showEUukUSA = document.querySelector("#showEUukUSA");
+
+  let from = "cm";
+  let to = "eu";
+
+  if(cmINCH){
+    cmINCH.addEventListener("change", (e)=>{
+      const val = e.target.value;
+      resultSize.innerText = "-";
+      enteredSize.value = ""
+      if(val === "cm") {
+        showCMiNCH.innerText = "CM";
+        from = "cm";
+      } else {
+        showCMiNCH.innerText = "INCH";
+        from = "inch"
+      }
+    })
+  }
+
+  if(euUKusa){
+    euUKusa.addEventListener("input", (e)=>{
+      resultSize.innerText = "-";
+      enteredSize.value = ""
+      const val = e.target.value;
+      if(val === "eu"){
+        showEUukUSA.innerText = "EU";
+        to = "eu"
+      }else if(val === "uk"){
+        showEUukUSA.innerText = "UK";
+        to = "uk"
+      }else{
+        showEUukUSA.innerText = "USA";
+        to = "usa"
+      } 
+    })
+  }
+  
+  if(enteredSize){
+      enteredSize.addEventListener("input", (e)=>{
+      const val = e.target.value;
+      if (val < (from === "cm" ? 20 : 8)) resultSize.innerText = "-";
+      if (val > (from === "cm" ? 20 : 8) && val <= (from === "cm" ? 22.8 : 9.0)) resultSize.innerText = to === "eu" ? 36 : to === "uk" ? 3 : 5;
+      if (val > (from === "cm" ? 22.8 : 9.0) && val <= (from === "cm" ? 23.5 : 9.2)) resultSize.innerText = to === "eu" ? 37 : to === "uk" ? 4 : 6;
+      if (val > (from === "cm" ? 23.5 : 9.2) && val <= (from === "cm" ? 23.8 : 9.4)) resultSize.innerText = to === "eu" ? 37.5 : to === "uk" ? 4.5 : 6.5;
+      if (val > (from === "cm" ? 23.8 : 9.4) && val <= (from === "cm" ? 24.1 : 9.5)) resultSize.innerText = to === "eu" ? 38 : to === "uk" ? 5 : 7;
+      if (val > (from === "cm" ? 24.1 : 9.5) && val <= (from === "cm" ? 24.5 : 9.6)) resultSize.innerText = to === "eu" ? 38.5 : to === "uk" ? 5.5 : 7.5;
+      if (val > (from === "cm" ? 24.5 : 9.6) && val <= (from === "cm" ? 24.8 : 9.8)) resultSize.innerText = to === "eu" ? 39 : to === "uk" ? 6 : 8;
+      if (val > (from === "cm" ? 24.8 : 9.8) && val <= (from === "cm" ? 25.2 : 9.9)) resultSize.innerText = to === "eu" ? 39.5 : to === "uk" ? 6.5 : 8.5;
+      if (val > (from === "cm" ? 25.2 : 9.9) && val <= (from === "cm" ? 25.5 : 10.0)) resultSize.innerText = to === "eu" ? 40 : to === "uk" ? 7 : 9;
+      if (val > (from === "cm" ? 25.5 : 10.0) && val <= (from === "cm" ? 26.2 : 10.3)) resultSize.innerText = to === "eu" ? 41 : to === "uk" ? 8 : 10;
+      if (val > (from === "cm" ? 26.2 : 10.3) && val <= (from === "cm" ? 26.9 : 10.6)) resultSize.innerText = to === "eu" ? 42 : to === "uk" ? 9 : 11;
+      if (val > (from === "cm" ? 26.9 : 10.6) && val <= (from === "cm" ? 27.5 : 10.8)) resultSize.innerText = to === "eu" ? 43 : to === "uk" ? 10 : 12;
+      if (val > (from === "cm" ? 27.5 : 10.8)) resultSize.innerText = "-";
+    })
+  }
+  $("#enteredSize").keyup(function(){
+    if($(this).val().length > 0){
+      $(".showOnFill").fadeIn()
+    }
+  })
+</script>
+{% schema %}
+  {
+    "name": "Size guide",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Size guide",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

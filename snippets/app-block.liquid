@@ -1,0 +1,93 @@
+{% if template contains "product" %}
+<!-- BEGIN app block: shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507 -->
+
+  <script type="lazyload2" data-src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XNV4Tn"></script>
+  <script type="lazyload2">!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();</script>
+
+    <script id="viewed_product">
+      if (item == null) {
+        var _learnq = _learnq || [];
+        var item = {
+          Name: "{{ item.Name }}",
+          ProductID: {{ item.ProductID }},
+          Categories: {{ item.Categories }},
+          ImageURL: "{{ item.ImageURL }}",
+          URL: "{{ item.URL }}",
+          Brand: "{{ item.Brand }}",
+          Price: "{{ item.Price }}",
+          CompareAtPrice: "{{ item.CompareAtPrice }}"
+        };
+        _learnq.push(['track', 'Viewed Product', item]);
+        _learnq.push(['trackViewedItem', {
+          Title: item.Name,
+          ItemId: item.ProductID,
+          Categories: item.Categories,
+          ImageUrl: item.ImageURL,
+          Url: item.URL,
+          Metadata: {
+            Brand: item.Brand,
+            Price: item.Price,
+            CompareAtPrice: item.CompareAtPrice
+          }
+        }]);
+      }
+  </script>
+    
+  <script>
+    window.klaviyoReviewsProductDesignMode = false
+  </script>
+
+<!-- END app app block -->			
+{% else %}
+<!-- BEGIN app block: shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507 -->
+
+  <script type="lazyload2" data-src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XNV4Tn"></script>
+  <script type="lazyload2">!function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}();</script>
+
+  <script>
+    window.klaviyoReviewsProductDesignMode = false
+  </script>
+
+<!-- END app app block -->			
+{% endif %}
+
+
+<!-- BEGIN app block: shopify://apps/xo-insert-code/blocks/insert-code-header/72017b12-3679-442e-b23c-5c62460717f5 --><!-- XO-InsertCode Header -->
+<!-- Google Tag Manager -->
+<script type="lazyload2">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PC67HMD');</script>
+<!-- End Google Tag Manager -->
+<!-- End: XO-InsertCode Header -->
+<!-- END app app block -->
+
+<div id="shopify-block-10148494829067693542" class="shopify-block shopify-app-block">
+<!-- XO-InsertCode Body -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PC67HMD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- End: XO-InsertCode Body -->
+</div>
+
+<!-- BEGIN app block: shopify://apps/bss-product-labels-badges/blocks/bss-pl/91bfe765-b604-49a1-805e-3599fa600b24 -->
+  <script type="lazyload2" data-src="https://cdn.shopify.com/extensions/fabc5e8e-ba25-4f96-856f-1224a6f137ad/2.0.0/assets/bss-pl.js"></script>
+<!-- END app app block -->
+
+<!-- BEGIN app block: shopify://apps/multi-location-inventory-info/blocks/app-embed/982328e1-99f7-4a7e-8266-6aed71bf0021 -->
+    <script type="lazyload2" data-src="https://cdn.shopify.com/extensions/17583b12-92c2-43f4-9437-9825a94cea46/afc1956/assets/common.bundle.js"></script>
+
+    <style>
+      .iia-icon svg{height:18px;width:18px}.iia-disabled-button{pointer-events:none}
+    </style>
+    <script>
+          window.inventoryInfo = window.inventoryInfo || {};
+          window.inventoryInfo.shop = window.inventoryInfo.shop || {};
+          window.inventoryInfo.shop.shopifyDomain = 'anonymousb2c.myshopify.com';
+          
+    </script>
+
+    <script type="lazyload2" data-src="https://cdn.shopify.com/extensions/17583b12-92c2-43f4-9437-9825a94cea46/afc1956/assets/main.bundle.js"></script>
+<!-- END app app block -->

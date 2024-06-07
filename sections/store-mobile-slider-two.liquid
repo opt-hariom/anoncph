@@ -1,0 +1,159 @@
+{%- liquid
+  assign wrapper = section.settings.wrapper
+  assign heading_size = section.settings.heading_size
+  assign image_aspect_ratio = section.settings.image_aspect_ratio
+  assign bg_color = section.settings.bg_color
+  assign sectionClass = section.settings.sectionClass
+  assign button_style = section.settings.button_style
+  assign animations_enabled = settings.animations_enabled
+  assign animation_anchor = '#ProductsList--' | append: section.id
+  assign animation_delay = 0
+
+  assign wrapper_class = 'wrapper'
+  if wrapper == 'full'
+    assign wrapper_class = 'wrapper wrapper--full'
+  endif
+  
+ assign meta_images = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/store44.png,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/store55.png,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/store66.png'| split: ','
+
+-%}
+
+{%- style -%}
+  {%- if bg_color != 'rgba(0,0,0,0)' and bg_color != '' -%}
+    #ProductsList--{{ section.id }} { background-color: {{ bg_color }}; }
+  {%- endif -%}
+  #ProductsList--{{ section.id }} { --aspect-ratio: {{ image_aspect_ratio }}; }
+  #ProductsList--{{ section.id }} .products-list__nav__button { --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }} * 0.01); }
+{%- endstyle -%}
+  <section
+    id="ProductsList--{{ section.id }}"
+    class="products-list-section {{ section.settings.sectionClass }}"
+    data-section-id="{{ section.id }}"
+    data-section-type="products-list"
+    data-autoplay-video="true"
+  >
+    <div class="{{ wrapper_class }}" data-overflow-container>
+      {%- unless section.settings.title == blank -%}
+       
+        {%- assign animation_delay = animation_delay | plus: 150 -%}
+      {%- endunless -%}
+     
+
+        <div class="productRow" data-aos="fade-up">
+          {% for image_data in meta_images %}
+            {%- liquid
+              assign image_url_pattern = image_data | replace: '_720x.', '_{width}x.'
+              assign image_widths = '[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]'
+            -%}
+
+            <div class="productCol">
+              <div class="productBlock">
+                <div class="productImg">
+                  <img
+                    class="lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="{{ image_url_pattern }}"
+                    data-widths="{{ image_widths }}"
+                    data-aspectratio="{{ image_aspect_ratio }}"
+                    alt="{{product_title}}"
+                    data-sizes="auto"
+                  >
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+{% schema %}
+{
+  "name": "Store mobile slider two",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Section Class"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+        "type": "select",
+        "id": "wrapper",
+        "label": "Width",
+        "default": "normal",
+        "options": [
+          { "value": "normal", "label": "Normal" },
+          { "value": "full", "label": "Wide" }
+        ]
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 100,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "default": "primary btn--small",
+      "options": [
+        { "label": "Text", "value": "text" },
+        { "label": "Small button", "value": "primary btn--small" },
+        { "label": "Large button", "value": "primary" },
+        { "label": "Small outline button", "value": "secondary btn--small" },
+        { "label": "Large outline button", "value": "secondary" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "info": "Wide to tall",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "default": 1.0
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    }
+  ],
+  "presets": [
+      {
+        "name": "Store mobile slider two",
+        "category": "Text"
+      }
+    ]
+}
+{% endschema %}

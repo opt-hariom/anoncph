@@ -1,0 +1,94 @@
+<style>
+.sale-header { background-color: #e4aeb1;}
+.saleHeaderWrap { display: flex; align-items: center; justify-content: space-between; color: white; max-width: 1000px;  padding:- 15px; margin: auto;}
+div#timer { display: flex; gap: 20px;}
+div#timer .timer-section { text-align: center; font-family: 'Cormorant'; font-style: italic; font-size: 12px; display: flex !important; flex-direction: column; align-items: center;}
+.saleHeaderWrap .ss23_content a { font-family: 'Dallas-Light'; letter-spacing: 0.04em; -webkit-font-smoothing: auto; font-size: 13px; font-weight: 500; background: white; padding: 4px 15px;}
+.saleHeaderWrap .ss23_content { font-size: 30px; font-family: Ogg!important; text-transform: capitalize;}
+div#timer .timer-section span { font-family: 'Dallas-Light'; font-style: normal; font-size: 25px; line-height: 20px;}
+div#timer .timer-section br { display: none;}
+.SNBtn { min-width: 182px; display: flex; justify-content: flex-end;}
+@media only screen and (max-width: 850px) {.saleHeaderWrap .ss23_content { font-size: 15px;} div#timer .timer-section span { font-size: 18px; line-height: 18px;}}
+@media only screen and (max-width: 575px) {.saleHeaderWrap .ss23_content {font-size: 12px;}div#timer { gap: 12px;}.ss23_content:nth-child(3) { display: none;}  .saleHeaderWrap .ss23_content{ padding:5px;  }}
+</style>
+ <div class="sale-header" id="sale-header">
+      <div class="saleHeaderWrap">
+          <div id="timer"  class="ss23_content">
+            <div class="timer-section" id="daysSection">
+              <span id="days">00</span><br>
+              Day
+            </div>
+            <div class="timer-section">
+              <span id="hours">00</span><br>
+              Hours
+            </div>
+            <div class="timer-section">
+              <span id="minutes">00</span><br>
+              Minutes
+            </div>
+            <div class="timer-section">
+              <span id="seconds">00</span><br>
+              Seconds
+            </div>
+          </div>
+          <div class="ss23_content">48 hours online sample sale</div>
+          <div class="ss23_content SNBtn"><a href="https://www.anoncph.com/pages/sample-sale">Shop Now</a></div>
+      </div>
+</div>
+<script>  
+     function updateCountdown() {
+      // Get the current date and time
+      const now = new Date().getTime();
+
+      // Calculate the distance between now and the count down date
+      const distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes, and seconds
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Update the HTML elements with the calculated values
+      document.getElementById("days").textContent = padNumber(days);
+      document.getElementById("hours").textContent = padNumber(hours);
+      document.getElementById("minutes").textContent = padNumber(minutes);
+      document.getElementById("seconds").textContent = padNumber(seconds);
+
+      // Hide the "Days" section if the count down has less than 1 day remaining
+      document.getElementById("daysSection").style.display = days < 1 ? "none" : "inline-block";
+    document.querySelector('.closeTopBar').style.cssText = 'top: 55px;';
+      // If the count down is finished, display a message
+     
+      if (distance < 0) {
+        document.getElementById("sale-header").style.display = "none";
+        document.querySelector('.closeTopBar').style.cssText = 'top: 10px;';
+
+
+        clearInterval(countdown);
+         return;
+      }
+    }
+
+  const countDownDate = new Date("May 20, 2023 19:00:00").getTime();
+  
+  //const countDownDate = new Date("May 20, 2023 16:51:00").getTime();
+    // Update the countdown immediately
+    updateCountdown();
+
+    // Update the countdown every second
+    const countdown = setInterval(updateCountdown, 1000);
+
+    // Function to pad single-digit numbers with leading zeros
+    function padNumber(number) {
+      return number.toString().padStart(2, '0');
+    }
+
+  // Function to handle the click event
+  function redirectToLink() {
+    if (window.innerWidth < 575) {
+      window.location.href = "https://www.anoncph.com/pages/sample-sale";
+    }
+  }
+  document.getElementById("sale-header").addEventListener("click", redirectToLink);
+  </script>

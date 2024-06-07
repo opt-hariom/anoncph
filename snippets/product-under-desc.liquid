@@ -1,0 +1,93 @@
+<div class="detailstext product__block">
+  {%- assign assign material = product.metafields.custom.material | downcase -%}
+  {% if material contains 'vegetable tanned' %}
+    <div>
+      <span>{%- render 'icon-lwg3' -%}</span>
+      <p>
+        <span>Vegetable tanned leather</span> - a sustainable and durable material, made using natural substances from plants and
+        sourced from high-quality tanneries that comply with environmental regulations.
+        <a class="underlineLink non-redirect" href="#vegetable-tanned">More about vegetable tanned leather.</a>
+      </p>
+    </div>
+  {% endif %}
+
+  {% if product.metafields.custom.lwg_block and product.metafields.custom.lwg_block != 'No' %}
+    <div>
+      <span>{%- render 'icon-lwg33' -%}</span>
+      <p>
+        <span>LWG certified leather</span> a by-product of the food industry, regionally sourced.
+        <a class="underlineLink" href="https://www.anoncph.com/pages/care#quality">More about our quality.</a>
+      </p>
+    </div>
+  {% endif %}
+  {% if product.metafields.custom.chrome_free_lining and product.metafields.custom.chrome_free_lining != 'No' %}
+    <div>
+      <span>{%- render 'icon-lwg2' -%}</span>
+      <p>
+        <span>Made with chrome-free lining</span> to minimize chemical exposure, making them ideal for sensitive skin. While the
+        lining is chrome-free, we advise individuals with chromium allergies to be cautious due to potential contact
+        with other chromium-containing components like the uppers.
+      </p>
+    </div>
+  {% endif %}
+  {% if product.metafields.custom.reach_compliant and product.metafields.custom.reach_compliant != 'No' %}
+    <div>
+      <span>{%- render 'icon-lwg1' -%}</span>
+      <p>
+        <span>REACH compliant production</span> made by hand in São João da Madeira, Portugal, Europe.
+        <a class="underlineLink" href="https://www.anoncph.com/pages/making-a-givia">More about our production.</a>
+      </p>
+    </div>
+  {% endif %}
+</div>
+ {%- liquid
+    assign fitting_img = product.metafields.custom.fitting_image
+  -%}
+{% if fitting_img and fitting_img != '' -%}
+
+    {% assign imageArray = fitting_img | split: ',' %}
+    <div class="fittingCZX mobile-only">
+
+      <a href="javascript:void(0);" class="accoBtn">
+        {% if imageArray.size == 1 %}
+          Fitting image
+        {% else %}
+          Fitting images
+        {% endif %}
+      </a>
+      <div class="accoContent">
+        <div class="style-video">
+          <section
+            id="ProductsList--788787878"
+            class="products-list-section fitting_mob"
+            data-section-id="788787878"
+            data-section-type="products-list"
+            data-autoplay-video="true"
+          >
+            <div class="productRow" data-aos="fade-up">
+              {% for imageUrl in imageArray %}
+                <div class="productCol">
+                  <div class="productBlock">
+                    <div class="productImg">
+                      {% assign trimmedImageUrl = imageUrl | strip %}
+                      {% assign imgg = trimmedImageUrl | replace: '.jpg', '_720x.jpg' %}
+                      {% assign image_url_pattern = imgg | replace: '_1080x.', '_{width}x.' %}
+                      {% assign image_widths = '[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]' %}
+                      <img
+                        class="lazyload"
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="{{ image_url_pattern }}"
+                        data-widths="{{ image_widths }}"
+                        alt="Fitting image"
+                        data-sizes="auto"
+                      >
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  {% endif %}

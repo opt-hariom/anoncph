@@ -1,0 +1,66 @@
+{% schema %}
+  {
+    "name": "related-colorPlate",
+    "settings": []
+  }
+{% endschema %}
+{% if product.metafields.custom.style_reference and product.metafields.custom.style_reference != 'Last chance!' %}
+{% if product.metafields.custom.color and product.metafields.custom.color != '' %}
+       
+<div class="product_block plateOuter onCollectionPage  desktop-only">
+{% assign related = product.metafields.custom.related_to.value | join:", " %}
+{% assign related_to = related | split:', ' %}
+{% assign number_of_related_products_to_show = 20 %}
+{% assign image_size = 'small' %}
+{% assign heading = 'Other Options' %}
+{% assign ccode =  product.metafields.custom.color  | split: "#" %}
+{%- assign image = product.featured_image -%}
+  {% assign counter = '' %}
+
+  <ul class="related-products colorPlate ">
+       {% if product.metafields.custom.style_reference and product.metafields.custom.style_reference != '' %}
+       <li class='{{ product.metafields.color }}'>
+          <div class="image currentProduct">
+            <a data-price="{{ product.price | money }}"  data-compare="{{ product.compare_at_price | money }}"  data-discount="{{discount_percentage}}"  data-image="{{ product.featured_image | img_url: '1024x' }}" style="background-color: #{{ ccode[1] }}"  href="javascript:void(0);" data-url="{{ product.url | within: collections.all }}" title="{{ product.metafields.custom.material | escape }} {{ ccode[0] }}">               
+            </a>
+          </div>
+        </li>
+        {% paginate collections.all.products by 1000 %}
+         {% for prod in collections.all.products %}
+             {% if prod.metafields.custom.style_reference == product.metafields.custom.style_reference and prod.id != product.id and counter.size < number_of_related_products_to_show %}
+               {% assign color_swatch = prod.metafields.custom.color | split: "#" %} 
+               {% assign original_price_prod = prod.compare_at_price | divided_by: 100 %}
+          {% assign discounted_price_prod = prod.price | divided_by: 100 %}
+          {% assign discount_percentage_prod = 0 %}
+          
+          {% if original_price_prod > discounted_price_prod %}
+            {% assign discounted_price_prod = original_price_prod | minus: discount_percentage_prod | times: 100 | divided_by: original_price_prod %}
+          {% endif %}
+              <li>
+                <div class="image">
+                  <a 
+                    data-url="{{ prod.url | within: collections.all }}" 
+                    data-image="{{ prod.featured_image | img_url: '1024x' }}" 
+                    data-price="{{ prod.price | money }}" 
+                    data-compare="{{ prod.compare_at_price | money }}" 
+                    data-discount="{{discount_percentage_prod}}" 
+                   
+                    style="background-color: #{{ color_swatch[1] }}"  href="javascript:void(0);" 
+                    title="{{ prod.metafields.custom.material | escape }} {{ color_swatch[0] }}">               
+                  </a>
+                </div>
+              </li>
+               {% capture counter %}{{ counter }}*{% endcapture %}
+              {% endif %}   
+           {% endfor %}
+          {% endpaginate %}
+      {% endif %}  
+  </ul>  
+</div>
+{% endif %}    
+{%- endif -%}
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

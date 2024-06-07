@@ -1,0 +1,52 @@
+{%- liquid
+  assign style_ref = section.settings.style_reference
+  assign style_video = section.settings.style_video
+-%}
+
+
+{% if style_video and style_video != '' %}
+  <section class="style-video-section desktop-only">
+  
+    <div class="style-video">
+        <h2 id="video-title">Style video </h2>
+         <video  loop="loop" style="width:100%" muted defaultMuted playsinline  oncontextmenu="return false;"  preload="none">
+          <source src="{{ style_video }}" type="video/mp4">
+        </video>
+      </div>
+  </section>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "VideoObject",
+    "name": "Campaign video",
+    "description": "{{ style_ref }} Campaign video",
+    "thumbnailUrl": "{{ product.featured_image  | product_img_url: "large" }}",
+     "contentUrl": "{{ style_video }}",
+    "uploadDate": "2023-05-05T08:01:27Z"
+  }
+</script> 
+{% endif %}
+
+{% schema %}
+{
+  "name": "Style Reference video",
+  "settings": [
+       {
+        "type": "text",
+        "id": "style_reference",
+        "label": "Style" 
+      }, {
+        "type": "text",
+        "id": "style_video",
+        "label": "Style Video" 
+      }
+    
+    ],
+  "presets": [
+    {
+      "name": "Style Reference video",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

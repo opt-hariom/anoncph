@@ -1,0 +1,39 @@
+<section class="flagship-store">
+  
+  <h2>Flagship Store</h2><address>
+Grønnegade 27, Left<br>
+1107 Copenhagen<br>
+Denmark
+</address>
+<div id="opening-hours">
+<p>Opening hours</p>
+<p>Weekdays: 11am-6pm (GMT+1)</p>
+<p>Saturday: 10am-5pm (GMT+1)</p>
+<p>Sundays: Closed</p>
+</div><div id="contacts">
+  <p>Contact</p>
+  <p>Phone: <a class="translink" href="tel:+4540981107">+45 4098 1107</a></p>
+  <p>Email: <a class="translink" href="mailto:1107@anoncph.com">1107@anoncph.com</a></p>
+</div>
+</section>
+{% schema %}
+  {
+    "name": "Store Banner with title",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Store Banner with title",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}
+{% style %}
+.translink:hover{	text-decoration-style: dashed;    text-decoration-thickness: 1px;}
+.translink {letter-spacing: 0.04em;text-decoration: underline;text-underline-offset: 10px;transition: all .3s ease-in-out;text-decoration-color: #7e7e82;}
+.flagship-store h2 {text-align: center;margin-top: 10%;font-size: 26px; font-family: 'Ogg-Bold';}
+.flagship-store address {    text-align: center; font-size: 14px;}
+#opening-hours, #contacts {margin-top: 40px;text-align: center;}
+div#opening-hours p, div#contacts p {    padding: 0;    margin: 0;    font-size: 14px;    font-style: italic;}
+#opening-hours p:first-child,#contacts p:first-child {color: #222222; font-style: normal; font-family: 'Dallas-Light'; font-size: 13px; letter-spacing: 0.04em; -webkit-font-smoothing: auto;}
+{% endstyle %}

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: Cormorant;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n4.97337b60a5e5cfd8eb51f36879679b2587d6c845.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=56466e4599544f9e6417bf31a738c92154acacb3c1c958539a655b9f071251e2") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n4.1881c3a6866ce20ecce46c859084ab4985bfe6e9.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=180659a0e1cced3f891432898fc13b245dc1fef4f192fd35cabf890747e3c2cc") format("woff");
+}
+
+@font-face {
+  font-family: Cormorant;
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n4.97337b60a5e5cfd8eb51f36879679b2587d6c845.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=56466e4599544f9e6417bf31a738c92154acacb3c1c958539a655b9f071251e2") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n4.1881c3a6866ce20ecce46c859084ab4985bfe6e9.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=180659a0e1cced3f891432898fc13b245dc1fef4f192fd35cabf890747e3c2cc") format("woff");
+}
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n5.39930f547f1e2fdf392f8ddd3deceebcff39b94e.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=c4286d0b9271af77343ee35d0b43b1d2b98a050f2e49b04f46e10625230ed96b") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n5.3cd49441e6a7ae1e7af5f4c0eae7d491e6817486.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=5662d588080f0600815ef379cdbb740329c0a30d2e2f59a8e2c855726a339c24") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n3.702ac4475fe8a832f953453763a1ee36b7a45b40.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=63df108fa6ea3d7cd9770fba53b4cc385c55e83a802c4b3740d703891223a6e0") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n3.ee18e45080f0a981469ce1e467af5205e7ee8e9c.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=f05359bc38c5b3744d8c2148f970ddae373d4f886b3962119b264d918753865d") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n7.01e929a12a06ba2fdefc1f1a6072e323a10a6caf.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=0e493199a576c0ea881e67b7dcb699cee3e0a48dfa18bffb0e7aa5a60583f4b6") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n7.4cd713a87fa681f123a74eaa10abafa7a3c3d538.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=3d0edc84318b241bda533c3314a29b9db68aee8849974dcbe42796e1a0a436e1") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n3.702ac4475fe8a832f953453763a1ee36b7a45b40.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=63df108fa6ea3d7cd9770fba53b4cc385c55e83a802c4b3740d703891223a6e0") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n3.ee18e45080f0a981469ce1e467af5205e7ee8e9c.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=f05359bc38c5b3744d8c2148f970ddae373d4f886b3962119b264d918753865d") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_n5.39930f547f1e2fdf392f8ddd3deceebcff39b94e.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=c4286d0b9271af77343ee35d0b43b1d2b98a050f2e49b04f46e10625230ed96b") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_n5.3cd49441e6a7ae1e7af5f4c0eae7d491e6817486.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=5662d588080f0600815ef379cdbb740329c0a30d2e2f59a8e2c855726a339c24") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_i4.1a95fa1115d2ef061b478ab74b5c0ee5394c255c.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=ef857a89534e74d64e6f796b3f13f1a98362104ba0c59a8c70ca85d1bcee6057") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_i4.1daf35bda3adff4473637ab36f2f5b5b1b780677.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=3e8d3a278a0eea13237c12c6899e35f025827c07e7b415dd7e3593caf5f2e604") format("woff");
+}
+
+
+
+
+  @font-face {
+  font-family: Cormorant;
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  src: url("https://fonts.shopifycdn.com/cormorant/cormorant_i7.adff832e4c5ca46e7e959912633239a830947acf.woff2?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=b97df12c2ee37105cf1d5aa992bf6f616ce0e6e0f92c8acccaa894f8f8fa2327") format("woff2"),
+       url("https://fonts.shopifycdn.com/cormorant/cormorant_i7.39b6dc9cdd8adbd8c77ab39ea1905e5653c83519.woff?h1=YW5vbmNwaC5jb20&h2=YW5vbnltb3VzYjJjLmFjY291bnQubXlzaG9waWZ5LmNvbQ&hmac=419687405fd60af7e52e18c23b39f6611a83f344157d56c07db46571e710615b") format("woff");
+}

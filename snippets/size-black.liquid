@@ -1,0 +1,43 @@
+{%- comment -%}
+  Renders list of filters in collection/search
+
+  Accepts:
+  - filter: {Object} collection.filter or search.filter (required)
+
+  Usage:
+  {% render 'filter', filter: filter %}
+{%- endcomment -%}
+
+{%- liquid
+  assign is_active = false
+  assign active_values = filter.active_values.size
+  if active_values > 0
+    assign is_active = true
+  endif
+
+  if filter.min_value.value != nil or filter.max_value.value != nil
+    if filter.type == 'price_range'
+      assign is_active = true
+    endif
+  endif
+-%}
+{% if filter.label == "Size" %} 
+<div class="black-filter">
+    <ul class="filter-list">
+          {%- for filter_value in filter.values -%}
+            <li class="{{ filter_classes }}">
+                <input type="checkbox"
+                  class="filter__input"
+                  name="{{ filter_value.param_name }}"
+                  value="{{ filter_value.value }}"
+                  id="filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                  {% if filter_value.active %}checked{% endif %}
+                  {% if filter_value.label == 'In stock' %}checked{% endif %}
+                  {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}>
+                <label class="filter__button" for="filter-{{ filter.label | escape }}-{{ forloop.index }}">{{ filter_value.label }}</label>
+          </li>
+          {%- endfor -%}
+    </ul>
+  </div>
+  
+{% endif %}

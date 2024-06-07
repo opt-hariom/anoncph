@@ -1,0 +1,90 @@
+{%- liquid
+  assign imgg1 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Sessi-Braided-goat_720x.png?v=1691732160'
+  assign imgg2 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Lindsay-lamb-fur-Cal_720x.png?v=1691732160'
+  assign image_url_pattern1 = imgg1 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern2 = imgg2 | replace: '_1080x.', '_{width}x.'
+  assign image_widths = '[180, 360, 540, 720, 900, 1080, 1200, 1440, 1800, 2160, 2400]'
+-%}
+<section class="padding-bottomSEc {{ section.settings.sectionClass }}">
+  <div class="sec-container">
+    <div class="leatherCare">
+      <div class="lcLower">
+        <div class="lcLowerPrimary">
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Our commitment to responsibility</h3>
+              <p style="margin-top: 10px">
+                The B Corporation certification process is both rigorous and comprehensive. With a remarkable score of
+                95.2, we demonstrated our unwavering commitment to a purpose-driven model, reflecting the values
+                embodied in our <a class="underlineLink" href="https://www.anoncph.com/pages/code-of-ethics-and-whistleblower-policy"><i>Code of Ethics</i></a>, <a class="underlineLink"  href="https://www.anoncph.com/pages/corporate-mission"><i>Corporate Mission</i></a>, <a class="underlineLink"  href="https://www.anoncph.com/pages/supplier-code-of-conduct-compliance-agreement"><i>Supplier Code of Conduct</i></a>, and <a class="underlineLink"  href="https://www.anoncph.com/pages/code-of-ethics-and-whistleblower-policy"><i>Sustainability &
+                Environmental Policy.</i></a>
+              </p>
+              <p style="margin-top: 10px">
+                This certification isn’t just an accolade for us; it represents a commitment to set industry standards
+                and to inspire others in the fashion industry. We’re proud to lead by example, promoting ethical
+                sourcing, manufacturing, and a more sustainable approach to business.
+              </p>
+            </section>
+          </div>
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img
+                class="img-450 lazyload"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="{{ image_url_pattern1 }}"
+                data-widths="{{ image_widths }}"
+                data-aspectratio="1"
+                alt="about5"
+                data-sizes="auto"
+              >
+            </span>
+          </div>
+        </div>
+        <div class="lcLowerPrimary">
+          <div class="lcLowerRight" data-aos="fade-up">
+            <span>
+              <img
+                class="img-450 lazyload"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="{{ image_url_pattern2 }}"
+                data-widths="{{ image_widths }}"
+                data-aspectratio="1"
+                alt="Untitled-1"
+                data-sizes="auto"
+              >
+            </span>
+          </div>
+          <div class="lcLowerLeft">
+            <section data-aos="fade-up">
+              <h3>Inspiring positive change</h3>
+              <p style="margin-top: 10px">
+                We believe our achievement will serve as a catalyst for positive change within our industry. We hope to
+                inspire other organizations to embrace sustainability and social responsibility, aligning with our
+                vision for a future where ethical and sustainable business practices are not just optional but
+                essential.
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Bcorp- Img with up text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Secton Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bcorp- Img with up text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

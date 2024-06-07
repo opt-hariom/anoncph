@@ -1,0 +1,36 @@
+<div class="{{ section.settings.sectionClass }}">
+<div class="{% if section.settings.include_margins %}wrapper{% endif %}" data-section-type="{{ section.id }}" data-section-type="apps">
+  {%- for block in section.blocks -%}
+    {% render block %}
+  {%- endfor -%}
+</div>
+</div>
+{% schema %}
+{
+  "name": "Apps",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_margins",
+      "default": true,
+      "label": "Include margins"
+    },
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Section Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ]
+}
+{% endschema %}

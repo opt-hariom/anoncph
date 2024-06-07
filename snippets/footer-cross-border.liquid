@@ -1,0 +1,17 @@
+<style>
+    .footer-localization-span {
+      cursor: pointer;
+      border-bottom: 1px solid;
+      font-style: normal!important;
+    }
+</style>
+
+<div class="footer-localization-selector-wrapper">
+  <div class="footer-localization-selector">
+    <button class="localization-btn">
+      {%- form 'localization', class: local_form_class, id: 'LocalizationForm' -%}
+          <span>Shipping to </span><span class="footer-localization-span">{{ form.current_country.name }}</span>
+      {%- endform -%}
+    </button>
+  </div>
+</div>

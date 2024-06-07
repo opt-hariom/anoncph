@@ -1,0 +1,5 @@
+{%- assign image =  media.preview_image | img_url:'master' -%}     
+{%- case media.media_type -%} 
+{%- when 'image' -%}
+  <img class="zoomImg" data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ image }}">
+{%- endcase -%}

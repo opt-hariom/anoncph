@@ -1,0 +1,390 @@
+{%- liquid
+  assign material = section.settings.material | downcase  
+  assign metallic_trim = section.settings.metallic_trim | downcase  
+  assign sole_material = section.settings.sole_material
+  assign style_ref = section.settings.style_reference
+  assign lining_material = section.settings.lining_material
+  assign designer = section.settings.designer
+  assign show_style_section = 'no'
+  assign show_designer_section = 'no'
+  
+  case style_ref
+  when 'Shane petite pillow bag'
+      assign show_style_section = 'yes'
+      assign imgg9 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Lambskin_900xdfgw.jpg?v=1694161915'
+      assign material_title9 = "What's in my Shane petit bag?"
+      assign material_content9 = "<p>When it's time to hit the town, my Shane petit bag is my go-to sidekick. Inside, you'll always find a duo of lip products – a gloss and a lipstick, because a girl needs options, right? Then there's my flower hair clamp, bringing a touch of summer no matter the season. And, of course, the true lifelines: keys and wallet. Because while spontaneity is great, getting locked out? Not so much.</p><p>Love, Emilie Do @petitecheriee</p>"
+  when 'Hally grand cloud bag'
+      assign show_style_section = 'yes'
+      assign imgg9 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Lambskin_900xs_3403c028-4bb7-43af-b886-59bb0a7e504a.jpg?v=1694162198'
+      assign material_title9 = "What's in my Hally grand bag?"
+      assign material_content9 = "<p>Well, the lineup includes: keys, my trusty wallet, a touch of beauty for those unexpected glam moments, my signature perfume, and of course, those essential sunglasses for the surprise sunny spells. It’s a blend of the must-haves and the love-to-haves, all tucked into my go-to Hally grand bag. Truly, it’s been my sidekick, handling all my organized chaos with style.</p><p>Love, Emilie Do @petitecheriee</p>"
+  else
+    assign show_style_section = 'no'
+  endcase
+
+  
+  assign image_widths = '[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]'
+-%}  
+
+{%- liquid
+   
+  if material contains "hand-braided"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Braid_900x.jpg?v=1686917381'
+      assign material_title = 'Hand-Braided'
+      assign material_link = 'https://www.anoncph.com/collections/hand-braided-shoes'
+      assign material_content = '<p>This pair of shoes is meticulously hand-braided using traditional techniques by skilled artisans, resulting in a unique and beautiful design.</p><p>The braided pattern is carefully crafted with precision and attention to detail, ensuring a high-quality finish.</p><p>Made from premium materials, these shoes are not only stylish but also durable and comfortable to wear. The hand-braiding technique used in the production process adds to the individual character and charm of each pair, making them a truly special addition to your shoe collection.</p>'
+  elsif material contains "lamb"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Lambskin_900x.jpg?v=1682568806'
+      assign material_title = 'Our lambskin leather'
+      assign material_link = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Shiny+lamb&filter.p.m.custom.material=Shiny+lamb+%26+Snake+calf&filter.p.m.custom.material=Silk+lamb&filter.p.m.custom.material=Silky+lamb&filter.p.m.custom.material=Silky+lamb+print&filter.v.availability=1'
+      assign material_content = '<p>Our lambskin leather is sourced from high-quality tanneries that are certified by the Leather Working Group (LWG) and comply with REACH regulations. As a by-product of the food industry, our lambskin leather is not only smooth and buttery in texture, but also a sustainable and responsible choice for your footwear.</p>'
+  elsif material contains "soft calf"
+	  assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Soft_calf_900x.jpg?v=1682568806'
+      assign material_title = 'Our soft calf leather'
+      assign material_link = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Soft+calf&filter.p.m.custom.material=Soft+calf+%26+Calf+suede&filter.p.m.custom.material=Soft+calf+grained&filter.v.availability=1'
+      assign material_content = '<p>Our soft calf leather is carefully sourced from high-quality tanneries that are certified by the Leather Working Group (LWG) and comply with REACH regulations. The leather is not only luxuriously soft and smooth to the touch but also strong and durable, ensuring that your leather products will last for years to come with proper care. The refined texture and versatile nature of our leather make it a perfect material for creating shoes, boots and bags. Trust us to provide you with the highest quality leather, sourced responsibly from regional tanneries.</p>'
+   elsif material contains "suede"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Calf-suede_900x.jpg?v=1682568806'
+      assign material_title = 'Our suede leather'
+      assign material_link = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Calf+Suede&filter.p.m.custom.material=Calf+suede+%26+Metallic+goat&filter.p.m.custom.material=Calf+suede+%26+Shiny+lamb&filter.p.m.custom.material=Calf+suede+print&filter.p.m.custom.material=Calf+suede+print+%26+Sleek+leather&filter.p.m.custom.material=Calf+suede-+and+Shiny+lamb+leather&filter.p.m.custom.material=Crystals+calf+suede&filter.p.m.custom.material=Raffia+%26+calf+suede&filter.v.availability=1'
+      assign material_content = '<p>Our suede leather has a unique velvety texture and appearance, making it a perfect choice for both casual and dressy occasions, as it is both soft and comfortable to wear. The hides are regionally sourced from high-quality tanneries that have been certified by the Leather Working Group (LWG), comply with REACH regulations, and have been produced using resource-efficient and environmentally responsible practices. To make our suede skins, the tanneries split them into multiple layers, resulting in the production of two or more skins from a single skin. This innovative process allows us to create more products from the same amount of skins compared to regular types of leather, reducing waste and making our products more environmentally friendly.</p>'
+  
+  elsif material contains "Calf suede print"
+	  assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Calf_suede_leopard_900x.jpg?v=1682568806'
+      assign material_title = 'Our suede print leather'
+      assign material_link = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Calf+suede+print&filter.p.m.custom.material=Calf+suede+print+%26+Sleek+leather&filter.v.availability=1'
+      assign material_content = '<p>Our suede print leather is made using the same high-quality suede leather as our plain suede. The difference is that the surface of the leather has been printed with a unique pattern, adding a touch of sophistication and style to any shoe design. The printing process is done using state-of-the-art technology that ensures the pattern is durable and long-lasting. As with our plain suede leather, the suede print is sourced from LWG-certified and REACH-compliant tanneries that adhere to resource-efficient and environmentally responsible practices. This means that not only does the suede print add an element of design to our shoes, but it is also made with sustainability in mind.</p>'
+  elsif material contains "vegetable"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Vegetal_tanned_900x.jpg?v=1682568806'
+      assign material_title = 'Vegetable tanned leather'
+      assign material_id = 'vegetable-tanned'
+      assign material_link = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Glossy+grained+vegetable+tanned+calf&filter.p.m.custom.material=Vegetable+tanned+calf&filter.v.availability=1'
+      assign material_content = '<p>Vegetable tanned leather is a unique type of leather that is tanned using natural substances derived from plants such as oak bark, mimosa, and quebracho. This process produces a leather that is both durable and has a distinctive, natural appearance. The leather also develops a beautiful patina over time, giving it a unique character and charm.</p><p>Our vegetable tanned leather is sourced from high-quality tanneries that are certified by the Leather Working Group (LWG) and comply with REACH regulations. The tanneries also use resource-efficient and environmentally responsible practices, ensuring that our products are not only beautiful but also sustainable.</p><p>Vegetable tanned leather is a great choice for a wide variety of products, from shoes and bags to wallets and belts. It is also a popular choice among customers who value environmentally friendly and sustainable products.</p>'
+  elsif material contains "hair"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Calf_hair_leopard_900x.jpg?v=1687151518'
+      assign material_title = 'Our calf hair leather'
+   assign material_link = 'https://www.anoncph.com/collections/new-arrivals?filter.p.m.custom.material=Calf+hair&filter.v.availability=1&sort_by=manual'
+      assign material_id = 'vegetable-tanned'
+      assign material_content = '<p>Our calf hair leather is a luxurious and versatile material that adds a touch of sophistication and elegance to our products. This type of leather is made from the hide of a calf, giving it a soft and smooth texture. The natural hair patterns create a beautiful and unique look, making each piece one-of-a-kind.</p><p>We source our calf hair leather from reputable suppliers who adhere to high standards of quality and sustainability. Our suppliers are committed to ethical sourcing and ensure that the calves are treated with care and respect. The calf hair leather undergoes a careful tanning process to preserve its natural beauty and durability.</p><p>Just like our other leather materials, our calf hair leather meets the rigorous requirements of the Leather Working Group (LWG) and complies with REACH regulations. This means that the production of our calf hair leather is environmentally responsible and free from harmful substances.</p>'
+  elsif material contains "crackled metallic goat"
+      assign show_section = 'yes'
+      assign imgg = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/metalic_gold_900x.jpg?v=1696828307'
+      assign material_title = 'Our crackled metallic goat leather'
+   assign material_link ='https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Crackled+metallic+goat&filter.v.availability=1'
+      assign material_id = 'vegetable-tanned'
+      assign material_content = '<p>Our crackled metallic goat leather is sourced from LWG-certified and REACH-compliant tanneries that adhere to resource-efficient and environmentally responsible practices.</p><p>This leather is treated with a unique coating that not only imparts a lustrous, reflective finish but also enhances the cracks and creases in the grain, creating a captivating texture that exudes character and style. The result is a leather that effortlessly combines rugged charm with a touch of elegance.</p><p>Despite its textured appearance, our crackled metallic leather remains highly durable and easy to maintain, making it an excellent choice for shoes, bags, and other accessories.</p>'
+  else
+      assign show_section = 'no'
+      assign material_id = 'materialText'
+  endif
+  
+  assign image_url_pattern = imgg | replace: '_720x.', '_{width}x.'
+  assign image_url_pattern9 = imgg9 | replace: '_720x.', '_{width}x.'
+  assign show_section1 = 'no'
+  if material contains "snake"
+      assign show_section1 = 'yes'
+      assign imgg1 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Snake_44c5f9c1-68a7-480d-bb0b-e60dd706560a_900x.jpg?v=1682568806'
+      assign material_title1 = 'Our snake printed leather'
+   assign material_link ='https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.material=Snake+calf&filter.p.m.custom.material=Snake+metallic+calf&filter.v.availability=1'
+      assign material_content1 = '<p>Our snake printed leather is a textured and patterned leather that mimics the look and feel of real snake skin. This type of leather is perfect for adding a unique and exotic touch to any outfit. Our snake printed leather is sourced from high-quality tanneries that adhere to the standards set by the Leather Working Group (LWG) and REACH regulations, ensuring that the leather is produced using environmentally responsible and resource-efficient practices. Our snake printed leather is also durable and long-lasting, making it an excellent choice for shoes, bags, and other accessories.</p>'
+      assign image_url_pattern1 = imgg1 | replace: '_720x.', '_{width}x.' 
+  endif
+
+  
+  assign metallic_trim_section = 'no'
+  if metallic_trim == "yes" 
+      assign metallic_trim_section = 'yes'
+      assign imgg2 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Buckles_bcfbca92-c364-4490-be21-fa7a022442b3_900x.jpg?v=1682568806'
+      assign material_title2 = 'Our metallic trims'
+      assign material_content2 = "<p>Our metallic trims, including buckles, zippers, lace holes, and more, are made with real metallic materials, giving them a premium look and feel that sets them apart. Unlike synthetic alternatives, our metallic trims have a weight and texture that can't be matched, adding a touch of luxury. It's just one more detail that we take seriously, ensuring that our products are not only stylish but also crafted with quality materials.</p>"
+      assign image_url_pattern2 = imgg2 | replace: '_720x.', '_{width}x.'
+  endif
+
+  assign outsole_material = 'no'
+  if sole_material == "Leather, a highly durable, breathable sole that provides excellent traction, while also offering a comfortable fit that molds to the wearer's foot over time."
+     assign outsole_material = 'yes'
+     assign imgg3 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Leather_soles_900x.jpg?v=1682568806'
+     assign material_title3 = 'Leather sole'
+   assign material_link3 = 'https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.sole_material=Leather%2C+a+highly+durable%2C+breathable+sole+that+provides+excellent+traction%2C+while+also+offering+a+comfortable+fit+that+molds+to+the+wearer%27s+foot+over+time.&filter.p.m.custom.sole_material=Rubber+and+real+leather&filter.v.availability=1'
+     assign material_content3 = "<p>This product features leather soles that meet the stringent standards set by the Leather Working Group (LWG) and comply with REACH regulations. Just like our other high-quality leather materials, our leather soles are crafted with care and attention to detail. These tanneries prioritize environmental stewardship, ensuring that the leather is produced using resource-efficient processes and with minimal impact on the environment.</p><p>The natural properties of leather also allow your feet to breathe, preventing excessive sweating and discomfort. For those looking for an extra layer of protection, we recommend reaching out to a local cobbler who can assist you with applying a thin rubber patch to the leather soles if desired. This rubber patch can provide extra durability and enhanced traction, making it a practical choice for those who frequently encounter slippery surfaces or simply want added peace of mind.</p><p>Experience the craftsmanship and reliability of our leather soles and enjoy the confidence that comes with wearing footwear made with the utmost care and consideration.</p>"
+     assign image_url_pattern3 = imgg3 | replace: '_720x.', '_{width}x.'
+  elsif sole_material == "Thunit, a specially developed good quality sole with a high wear resistance."
+     assign outsole_material = 'yes'
+     assign imgg3 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Thunit_soles_900x.jpg?v=1682568806'
+     assign material_title3 = 'Thunit sole'
+    assign material_link3 ='https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.sole_material=Thunit%2C+a+specially+developed+good+quality+sole+with+a+high+wear+resistance.&filter.v.availability=1'
+     assign material_content3 = '<p>This product features thunit soles, known for their durability, traction, and eco-friendly attributes.</p><p>Our thunit soles proudly carry the "Ready For ECOdesigned Footwear" label, signifying their compliance with environmental standards. Additionally, these thunit soles are RCS Blended, incorporating 10% recycled materials derived from wastages.</p>'
+     assign image_url_pattern3 = imgg3 | replace: '_720x.', '_{width}x.'
+  elsif sole_material == "Crepeline, a specially developed good quality sole with a high wear resistance."
+     assign outsole_material = 'yes'
+     assign imgg3 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Crepeline_900x.jpg?v=1696826577'
+     assign material_title3 = 'Crepeline sole'
+   assign material_link3 ='https://www.anoncph.com/collections/new-arrivals?sort_by=manual&filter.p.m.custom.sole_material=Crepeline%2C+a+specially+developed+good+quality+sole+with+a+high+wear+resistance.&filter.v.availability=1'
+     assign material_content3 = '<p>Our Crepeline soles are the result of meticulous development, sourced from REACH-compliant suppliers local to our production sites in Portugal. With a primary focus on long-lasting wear resistance, these soles are engineered to deliver exceptional quality and durability.</p><p>You can rely on these soles to withstand the demands of daily life while keeping your footwear looking sleek and stylish. Experience the perfect balance of performance and fashion with our Crepeline soles.</p>'
+     assign image_url_pattern3 = imgg3 | replace: '_720x.', '_{width}x.'
+  endif    
+
+  assign lining_material_section = 'no' 
+  if lining_material == "Natural sheep shearling fur"
+     assign lining_material_section = 'yes'
+     assign imgg25 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/fur_900x.jpg?v=1696829831'
+     assign material_title25 = 'Our sheep shearling fur'
+   assign material_link25 ='https://www.anoncph.com/search?q=Shearling&type=product%2Cpage'
+     assign material_content25 = "<p>Our sheep shearling fur, sourced responsibly from LWG-certified and REACH-compliant tanneries.</p><p>Crafted from the finest sheep shearling, our fur is a true indulgence in softness, plushness, and warmth. It provides an unmatched level of comfort, making it the ideal choice for adding an extra layer of coziness and style to your winter wardrobe.</p>"
+     assign image_url_pattern25 = imgg25 | replace: '_720x.', '_{width}x.'
+ endif   
+
+
+  
+  case designer
+  when 'Anonymous Copenhagen'
+      assign show_designer_section = 'yes'
+      assign imgg10 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/b-corp-certified_720x.jpg?v=1691661758'
+      assign material_title10 = "A certified B Corporation"
+      assign material_link10 = "https://www.anoncph.com/pages/b-corp"
+      assign material_content10 = "<p>Anonymous Copenhagen’s B Corporation certification is not merely a landmark achievement for us; it represents a crucial step in our ongoing journey towards responsible and sustainable fashion. This certification underscores our dedication to ethical business practices and environmental stewardship. But becoming certified is not the end of the journey; rather, it’s an important step that reinforces our commitment to continuous improvement and innovation. Together, we look forward to forging a future where these principles are at the core of everything we do, leading the way in creating a more responsible and sustainable industry.</p> <p>Want to learn more about B Corp and our commitment to sustainability? <a href='https://www.anoncph.com/pages/b-corp' class='underlineLink'> Click here.</a></p>"
+      assign image_url_pattern10 = imgg10 | replace: '_720x.', '_{width}x.'
+  else
+    assign show_designer_section = 'no'
+  endcase
+   
+  
+-%}
+
+
+{% if show_style_section == 'yes' %}
+    <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title9 }}</h6>
+        <p>
+          {{ material_content9 }}
+        </p>
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern9 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+  
+{% endif %}
+
+{% if show_section == 'yes' %}
+  <section class="material-section" id="{{ material_id }}">
+  
+    <div class="material-content"   >
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        
+        <h6>{{ material_title }}</h6>   
+          {{ material_content }}
+  {% if material_link != '' %}
+  <a href ="{{ material_link }}">View Other {{ material_title }} Items</a>
+        {% endif %}
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% if show_section1 == 'yes' %}
+  <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title1 }}</h6>
+        <p>
+          {{ material_content1 }}
+        </p>
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern1 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% if metallic_trim_section == 'yes' %}
+    <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title2 }}</h6>
+        <p>
+          {{ material_content2 }}
+        </p>
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern2 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+{% if outsole_material == 'yes' %}
+    <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title3 }}</h6>
+        <p>
+          {{ material_content3 }}
+        </p>
+        {% if material_link3 != '' %}
+        <a  style="text-align:right;" href ="{{ material_link3 }}">View Other {{ material_title3 }} Items</a>
+        {% endif %}
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern3 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% if lining_material_section == 'yes' %}
+    <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title25 }}</h6>
+        <p>
+          {{ material_content25 }}
+        </p>
+        {% if material_link25 != '' %}
+        <a href ="{{ material_link25 }}">View Other {{ material_title25 }} Items</a>
+        {% endif %}
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern25 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}"
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+
+{% if show_designer_section == 'yes' %}
+    <section class="material-section">
+    <div class="material-content">
+      <div class="material-text" data-aos="fade-up" data-aos-delay="100">
+        <h6>{{ material_title10 }}</h6>
+        <p>
+          {{ material_content10 }}
+        </p>
+  
+      </div>
+      <div class="material-img" data-aos="fade-up" data-aos-delay="100">
+        <img
+          class="material-preview lazyload"
+          style="width: 100%"
+          src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+          data-src="{{ image_url_pattern10 }}"
+          data-widths="{{ image_widths }}"
+          data-aspectratio="{{ image_aspect_ratio }}" 
+          alt="about-4"
+          data-sizes="auto"
+        >
+      </div>
+    </div>
+  </section>
+{% endif %}
+
+{% schema %}
+{
+  "name": "material img text",
+  "settings": [
+       {
+        "type": "text",
+        "id": "material",
+        "label": "Upper Material"
+      },
+      {
+        "type": "text",
+        "id": "metallic_trim",
+        "label": "Metallic trim"
+      },
+      {
+        "type": "text",
+        "id": "sole_material",
+        "label": "Sole material"
+      },
+      {
+        "type": "text",
+        "id": "style_reference",
+        "label": "Style reference"
+      },
+      {
+        "type": "text",
+        "id": "lining_material",
+        "label": "Lining material"
+      },
+      {
+        "type": "text",
+        "id": "designer",
+        "label": "Designer"
+      }
+    
+    ],
+  "presets": [
+    {
+      "name": "material img text",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

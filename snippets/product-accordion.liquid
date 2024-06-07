@@ -1,0 +1,358 @@
+<div class="tabCZcontainer">
+  <div class="tab-buttons">
+    {% if product.metafields.custom.sizing and product.metafields.custom.sizing != '' %}
+    <button class="tab-btn active" content-id="home">
+      Sizing
+    </button>
+    {% endif %}
+
+     {% if product.metafields.custom.designer
+    or product.metafields.custom.style_reference
+    or product.metafields.custom.heel_height
+    or product.metafields.custom.material
+    or product.metafields.custom.insole_material
+    or product.metafields.custom.lining_material
+    or product.metafields.custom.sole_material
+    or product.metafields.custom.made_in
+  %}
+    
+   
+    <button class="tab-btn" content-id="services">
+      Details & Care
+    </button>
+    {% endif %}
+    <button class="tab-btn" content-id="contact">
+      Shipping & Returns
+    </button>
+    {%- comment -%}
+    <button class="tab-btn" content-id="about">
+      Customer Care
+    </button>
+    {%- endcomment -%}
+
+  </div>
+  <div class="tab-contents">
+    {% if product.metafields.custom.sizing and product.metafields.custom.sizing != '' %}
+    <div class="content show" id="home">
+      
+      <div class="content-info">
+        <p class="content-description">
+          {{ product.metafields.custom.sizing }}
+          <a class="underlineLink" Id="sizeGuideBtn2" href="javascript:void(0)"
+            ><i>Try our standard size measure guide</i></a
+          >
+        </p>
+        {% if product.metafields.custom.additional_sizing_feedback
+          and product.metafields.custom.additional_sizing_feedback != ''
+        %}
+          <p>{{ product.metafields.custom.additional_sizing_feedback }}</p>
+        {% endif %}
+      </div>
+    </div>
+      {% endif %}
+     {% if product.metafields.custom.designer
+    or product.metafields.custom.style_reference
+    or product.metafields.custom.heel_height
+    or product.metafields.custom.material
+    or product.metafields.custom.insole_material
+    or product.metafields.custom.lining_material
+    or product.metafields.custom.sole_material
+    or product.metafields.custom.made_in
+  %}
+    <div class="content" id="services">
+      
+      <div class="content-info">
+        {% if product.metafields.custom.designer and product.metafields.custom.designer != '' %}
+          <p><b>Designer:</b> {{ product.metafields.custom.designer }}</p>
+        {% endif %}
+        {% if product.metafields.custom.style_reference and product.metafields.custom.style_reference != '' %}
+          <p><b>{{ 'products.general.custom_style_reference' | t }}:</b> {{ product.metafields.custom.style_reference }}</p>
+        {% endif %}
+        {% if product.metafields.custom.wide and product.metafields.custom.wide != '' %}
+          <p><b>Width:</b> {{ product.metafields.custom.wide }}</p>
+        {% endif %}
+        {% if product.metafields.custom.height and product.metafields.custom.height != '' %}
+          <p><b>Height:</b> {{ product.metafields.custom.height }}</p>
+        {% endif %}
+
+        {% if product.metafields.custom.depth and product.metafields.custom.wide != '' %}
+          <p><b>Depth:</b> {{ product.metafields.custom.depth }}</p>
+        {% endif %}
+        {% if product.metafields.custom.strap and product.metafields.custom.strap != '' %}
+          <p><b>Handle Drop:</b> {{ product.metafields.custom.strap }}</p>
+        {% endif %}
+        {% if product.metafields.custom.heel_height and product.metafields.custom.heel_height != '' %}
+          <p><b>{{ 'products.general.custom_heel_height' | t }}:</b> {{ product.metafields.custom.heel_height }}</p>
+        {% endif %}
+        {% if product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point and product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point != '' %}
+          <p><b>Shaft height:</b> {{ product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point }}</p>
+        {% endif %}
+         {% if product.metafields.custom.shaft_circumference_inside_measurement and product.metafields.custom.shaft_circumference_inside_measurement != '' %}
+          <p><b>Shaft circumference:</b> {{ product.metafields.custom.shaft_circumference_inside_measurement }}</p>
+        {% endif %}
+         
+        {% if product.metafields.custom.material and product.metafields.custom.material != '' %}
+          <p>
+            <b>Upper:</b> {{ product.metafields.custom.material }}.
+            <a class="underlineLink" Id="material_pop" href="javascript:void(0)"
+              ><i>More information about the material.</i></a
+            >
+          </p>
+        {% endif %}
+        {% if product.metafields.custom.lining_material and product.metafields.custom.lining_material != '' %}
+          <p><b>Lining:</b> {{ product.metafields.custom.lining_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.insole_material and product.metafields.custom.insole_material != '' %}
+          <p><b>Insole:</b> {{ product.metafields.custom.insole_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.sole_material and product.metafields.custom.sole_material != '' %}
+          <p><b>Outsole:</b> {{ product.metafields.custom.sole_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.made_in and product.metafields.custom.made_in != '' %}
+          <p>
+            <b>{{ 'products.general.custom_made_in' | t }}</b>
+            {{ product.metafields.custom.made_in }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    <div class="content" id="contact">
+      
+      <div class="content-info">
+       
+        <p><i>Free Shipping</i></p>
+      <p>Denmark on orders above 750 DKK</p>
+      <p>Within EU on orders above 100 EUR</p>
+      <p>Outside EU on orders above 100 USD</p>
+      <p style="margin-bottom: 10px; margin-top: 30px"><i>Free Exchanges</i></p>
+      <p>
+        To ensure a stress-free shopping experience, we provide free exchanges within 30 days of receiving your order,
+        enabling you to exchange any item for a different size, color, product or gift card at no additional cost.
+        Please note that return shipping for refunds is not included.
+      </p>
+      <p>
+        <a class="underlineLink" href="https://www.anoncph.com/policies/refund-policy">More about shipping or return & exchange</a>
+      </p>
+      </div>
+    </div>
+     {%- comment -%}
+    <div class="content" id="about">
+      
+      <div class="content-info">
+        <p><a class="underlineLink" href="#openChat" id="liveChat">Click here</a> for live chat and FAQ’s</p>
+      <p>Email : <a class="underlineLink" href="mailto:Service@anoncph.com">Service@anoncph.com</a></p>
+      <p>WhatsApp : <a class="underlineLink" href="https://wa.me/+4540981107" target="_blank">+ 45 4098 1107</a></p>
+      <p>Kindly note that we always strive to respond within 2 working days.</p>
+      </div>
+    </div>
+    {%- endcomment -%}
+
+  </div>
+</div>
+
+  
+<div class="cz-accordion product__block" style="display:none;">
+  {% if product.metafields.custom.sizing and product.metafields.custom.sizing != '' %}
+    <div class="accoItem open">
+      <a href="javascript:void(0);" class="accoBtn"
+        >Size <span class="accoIcon">{% render 'icon-arrow-top' %}</span></a
+      >
+      <div class="accoContent">
+        <p>
+          {{ product.metafields.custom.sizing }}
+          <a class="underlineLink" Id="sizeGuideBtn2" href="javascript:void(0)"
+            ><i>Try our standard size measure guide</i></a
+          >
+        </p>
+        {% if product.metafields.custom.additional_sizing_feedback
+          and product.metafields.custom.additional_sizing_feedback != ''
+        %}
+          <p>{{ product.metafields.custom.additional_sizing_feedback }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+
+  {%- liquid
+    assign fitting_img = product.metafields.custom.fitting_image
+    assign style_video = product.metafields.custom.style_video
+  -%}
+
+  {% if style_video and style_video != '' %}
+    <div class="accoItem open mobile-only">
+      <a href="javascript:void(0);" class="accoBtn"
+        >Style video <span class="accoIcon">{% render 'icon-arrow-top' %}</span></a
+      >
+      <div class="accoContent">
+        <div class="style-video">
+          <video
+            autoplay="autoplay"
+            loop="loop"
+            style="width:100%"
+            muted
+            defaultMuted
+            playsinline
+            oncontextmenu="return false;"
+            preload="auto"
+          >
+            <source src="{{ style_video }}" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if fitting_img and fitting_img != '' -%}
+
+    {% assign imageArray = fitting_img | split: ',' %}
+    <div class="accoItem open mobile-only">
+
+      <a href="javascript:void(0);" class="accoBtn">
+        {% if imageArray.size == 1 %}
+          Fitting image
+        {% else %}
+          Fitting images
+        {% endif %}
+        <span class="accoIcon">{% render 'icon-arrow-top' %}</span>
+      </a>
+      <div class="accoContent">
+        <div class="style-video">
+          <section
+            id="ProductsList--788787878"
+            class="products-list-section fitting_mob"
+            data-section-id="788787878"
+            data-section-type="products-list"
+            data-autoplay-video="true"
+          >
+            <div class="productRow" data-aos="fade-up">
+              {% for imageUrl in imageArray %}
+                <div class="productCol">
+                  <div class="productBlock">
+                    <div class="productImg">
+                      {% assign trimmedImageUrl = imageUrl | strip %}
+                      {% assign imgg = trimmedImageUrl | replace: '.jpg', '_720x.jpg' %}
+                      {% assign image_url_pattern = imgg | replace: '_1080x.', '_{width}x.' %}
+                      {% assign image_widths = '[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]' %}
+                      <img
+                        class="lazyload"
+                        src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                        data-src="{{ image_url_pattern }}"
+                        data-widths="{{ image_widths }}"
+                        alt="Fitting image"
+                        data-sizes="auto"
+                      >
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if product.metafields.custom.designer
+    or product.metafields.custom.style_reference
+    or product.metafields.custom.heel_height
+    or product.metafields.custom.material
+    or product.metafields.custom.insole_material
+    or product.metafields.custom.lining_material
+    or product.metafields.custom.sole_material
+    or product.metafields.custom.made_in
+  %}
+    <div class="accoItem">
+      <a href="javascript:void(0);" class="accoBtn"
+        >Details & Care <span class="accoIcon">{% render 'icon-arrow-top' %}</span></a
+      >
+      <div class="accoContent" style="display: none">
+        {% if product.metafields.custom.designer and product.metafields.custom.designer != '' %}
+          <p>Designer: {{ product.metafields.custom.designer }}</p>
+        {% endif %}
+        {% if product.metafields.custom.style_reference and product.metafields.custom.style_reference != '' %}
+          <p>{{ 'products.general.custom_style_reference' | t }}: {{ product.metafields.custom.style_reference }}</p>
+        {% endif %}
+        {% if product.metafields.custom.wide and product.metafields.custom.wide != '' %}
+          <p>Width: {{ product.metafields.custom.wide }}</p>
+        {% endif %}
+        {% if product.metafields.custom.height and product.metafields.custom.height != '' %}
+          <p>Height: {{ product.metafields.custom.height }}</p>
+        {% endif %}
+
+        {% if product.metafields.custom.depth and product.metafields.custom.wide != '' %}
+          <p>Depth: {{ product.metafields.custom.depth }}</p>
+        {% endif %}
+        {% if product.metafields.custom.strap and product.metafields.custom.strap != '' %}
+          <p>Handle Drop: {{ product.metafields.custom.strap }}</p>
+        {% endif %}
+        {% if product.metafields.custom.heel_height and product.metafields.custom.heel_height != '' %}
+          <p>{{ 'products.general.custom_heel_height' | t }}: {{ product.metafields.custom.heel_height }}</p>
+        {% endif %}
+        {% if product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point and product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point != '' %}
+          <p>Shaft height: {{ product.metafields.custom.shaft_height_measured_from_heel_bottom_to_highest_point }}</p>
+        {% endif %}
+         {% if product.metafields.custom.shaft_circumference_inside_measurement and product.metafields.custom.shaft_circumference_inside_measurement != '' %}
+          <p>Shaft circumference: {{ product.metafields.custom.shaft_circumference_inside_measurement }}</p>
+        {% endif %}
+         
+        {% if product.metafields.custom.material and product.metafields.custom.material != '' %}
+          <p>
+            Upper: {{ product.metafields.custom.material }}.
+            <a class="underlineLink" Id="material_pop" href="javascript:void(0)"
+              ><i>More information about the material.</i></a
+            >
+          </p>
+        {% endif %}
+        {% if product.metafields.custom.lining_material and product.metafields.custom.lining_material != '' %}
+          <p>Lining: {{ product.metafields.custom.lining_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.insole_material and product.metafields.custom.insole_material != '' %}
+          <p>Insole: {{ product.metafields.custom.insole_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.sole_material and product.metafields.custom.sole_material != '' %}
+          <p>Outsole: {{ product.metafields.custom.sole_material }}</p>
+        {% endif %}
+        {% if product.metafields.custom.made_in and product.metafields.custom.made_in != '' %}
+          <p>
+            {{ 'products.general.custom_made_in' | t }}
+            {{ product.metafields.custom.made_in }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  <div class="accoItem">
+    <a href="javascript:void(0);" class="accoBtn"
+      >Shipping & Returns <span class="accoIcon">{% render 'icon-arrow-top' %}</span></a
+    >
+    <div class="accoContent" style="display: none">
+      <p><i>Free Shipping</i></p>
+      <p>Denmark on orders above 750 DKK</p>
+      <p>Within EU on orders above 100 EUR</p>
+      <p>Outside EU on orders above 100 USD</p>
+      <p style="margin-bottom: 10px; margin-top: 30px"><i>Free Exchanges</i></p>
+      <p>
+        To ensure a stress-free shopping experience, we provide free exchanges within 30 days of receiving your order,
+        enabling you to exchange any item for a different size, color, product or gift card at no additional cost.
+        Please note that return shipping for refunds is not included.
+      </p>
+      <p>
+        <a class="underlineLink" href="https://www.anoncph.com/policies/refund-policy"
+          >More about shipping or return & exchange</a
+        >
+      </p>
+    </div>
+  </div>
+  <div class="accoItem">
+    <a href="javascript:void(0);" class="accoBtn"
+      >Customer Care <span class="accoIcon">{% render 'icon-arrow-top' %}</span></a
+    >
+    <div class="accoContent" style="display: none">
+      <p><a class="underlineLink" href="#openChat" id="liveChat">Click here</a> for live chat and FAQ’s</p>
+      <p>Email : <a class="underlineLink" href="mailto:Service@anoncph.com">Service@anoncph.com</a></p>
+      <p>WhatsApp : <a class="underlineLink" href="https://wa.me/+4540981107" target="_blank">+ 45 4098 1107</a></p>
+      <p>Kindly note that we always strive to respond within 2 working days.</p>
+    </div>
+  </div>
+</div>

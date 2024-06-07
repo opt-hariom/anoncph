@@ -1,0 +1,92 @@
+{%- comment -%}
+  Renders a pagination bar
+  Accepts:
+
+  - paginate: {Object} Paginate Liquid object (required)
+
+  Usage:
+  {%- render 'pagination', paginate: paginate -%}
+{%- endcomment -%}
+{%- comment -%}
+{%- capture icon_previous -%}
+  <button class="pagination__button pagination__button--previous">
+    {% render 'icon-arrow' %}
+  </button>
+{%- endcapture -%}
+
+{%- capture icon_next -%}
+  <button class="pagination__button pagination__button--next">
+    {% render 'icon-arrow' %}
+  </button>
+{%- endcapture -%}
+
+<div class="pagination" data-pagination>
+  {{- paginate | default_pagination | replace: '&laquo; Previous', icon_previous | replace: 'Next &raquo;', icon_next -}}
+</div>
+{%- endcomment -%}
+<div class="cz-paginate">
+   {%- if paginate.pages > 1 -%}
+    <div role="navigation">
+      <div class="toTop">
+        <div><span class="toTopBtn">{% render "icon-page-first" %}</span></div>
+      </div>
+      <div class="c-pagination">
+        <div class="btnBox">
+           {%- if paginate.current_page != 1 -%}
+          <div>
+            <a href="{{ paginate.parts.first.url }}">
+              <span class="visuallyhidden">First page</span>
+              <span aria-hidden="true">{% render "icon-page-first" %}</span>
+            </a>
+          </div>
+          {%- else -%}
+          <div class="disabled">
+            <span class="visuallyhidden">First page</span>
+            <span aria-hidden="true">{% render "icon-page-first" %}</span>
+          </div>
+          {%- endif -%}  
+        
+          {%- if paginate.previous-%}
+          <div class="prevbtnpage">
+            <a href="{{ paginate.previous.url }}">
+              <span aria-hidden="true">{% render "icon-page-prev" %} &nbsp;&nbsp;Previous</span>
+            </a>
+          </div>
+          {%- else -%}
+          <div class="disabled prevbtnpage">
+            <span aria-hidden="true">{% render "icon-page-prev" %} &nbsp;&nbsp;Previous</span>
+          </div>
+          {%- endif -%}
+        </div>
+        <div class="currentPg">page {{ paginate.current_page }} of {{ paginate.pages }}</div>
+        <div class="btnBox text-right" style="justify-content: flex-end;">
+          {%- if paginate.next -%}
+            <div class="nextbtnpage">
+              <a href="{{ paginate.next.url }}">
+                <span aria-hidden="true">Next&nbsp;&nbsp; {% render "icon-page-next" %}</span>
+              </a>
+            </div>
+            {%- else -%}
+              <div class="disabled nextbtnpage">
+                <span aria-hidden="true">Next&nbsp;&nbsp; {% render "icon-page-next" %}</span>
+              </div>
+            {%- endif -%}
+         
+           {%- if paginate.pages != paginate.current_page -%}
+            <div>
+               <a href="{{ paginate.parts.last.url }}">
+                 <span class="visuallyhidden">Last page</span>
+                <span style="justify-content: flex-end" aria-hidden="true">{% render "icon-page-last" %}</span>
+              </a>
+            </div>
+            {%- else -%}
+            <div class="disabled">
+              <span class="visuallyhidden">Last page</span>
+              <span style="justify-content: flex-end" aria-hidden="true">{% render "icon-page-last" %}</span>
+            </div>
+          {%- endif -%}  
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>

@@ -1,0 +1,89 @@
+<div class="blackFridayBanner">
+            {%- if paginate.current_page == 1 -%}
+              <div class="black-friday-row">
+                <div class="black-friday-col">
+                  <div>
+                    <p>NEW SEASON ITEMS</p>
+                    <h3>30% off</h3>
+                    <span>Selected styles</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/black-friday-30-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+                <div class="black-friday-col">
+                  <div>
+                    <p>REGULAR SALE ITEMS</p>
+                    <h3>70% off</h3>
+                    <span>Spring summer 2022 sale</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/black-friday-70-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+                <div class="black-friday-col">
+                  <div>
+                    <p>SAMPLE SALE</p>
+                    <h3>70% off</h3>
+                    <span>Mized sizes but mainly size 38</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/sample-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+              </div>
+              <div class="shopAllBtnBox text-center">
+                <a id="shopTo" href="https://www.anoncph.com/collections/black-friday#shopToScroll" class="btn btn--primary ">Shop all</a>
+              </div>
+              {% endif %}
+              <div class="shopBySizeBox" style="{%- if paginate.current_page > 1 -%}margin-top: 0; {% endif %}">
+                <h2>Shop by size</h2>
+                <span>Note: you can select several sizes</span>
+                <div class="size__row">
+                  {%- liquid
+                    for filter in collection.filters
+                      render 'size-black', filter: filter
+                    endfor
+                  -%}
+                </div>
+                <span id="shopToScroll">All Black friday offers are listed below</span>
+              </div>
+            </div><div class="blackFridayBanner">
+            {%- if paginate.current_page == 1 -%}
+              <div class="black-friday-row">
+                <div class="black-friday-col">
+                  <div>
+                    <p>NEW SEASON ITEMS</p>
+                    <h3>30% off</h3>
+                    <span>Selected styles</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/black-friday-30-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+                <div class="black-friday-col">
+                  <div>
+                    <p>REGULAR SALE ITEMS</p>
+                    <h3>70% off</h3>
+                    <span>Spring summer 2022 sale</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/black-friday-70-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+                <div class="black-friday-col">
+                  <div>
+                    <p>SAMPLE SALE</p>
+                    <h3>70% off</h3>
+                    <span>Mized sizes but mainly size 38</span>
+                  </div>
+                  <div class="btnbx"><a href="https://www.anoncph.com/collections/sample-sale" class="btn btn--primary ">Shop now</a></div>
+                </div>
+              </div>
+              <div class="shopAllBtnBox text-center">
+                <a id="shopTo" href="https://www.anoncph.com/collections/black-friday#shopToScroll" class="btn btn--primary ">Shop all</a>
+              </div>
+              {% endif %}
+              <div class="shopBySizeBox" style="{%- if paginate.current_page > 1 -%}margin-top: 0; {% endif %}">
+                <h2>Shop by size</h2>
+                <span>Note: you can select several sizes</span>
+                <div class="size__row">
+                  {%- liquid
+                    for filter in collection.filters
+                      render 'size-black', filter: filter
+                    endfor
+                  -%}
+                </div>
+                <span id="shopToScroll">All Black friday offers are listed below</span>
+              </div>
+            </div>

@@ -1,0 +1,66 @@
+{%- liquid
+  assign imgg1 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/about2_720x.png?v=1666949921'
+  assign imgg2 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/about1_720x.png?v=1666949918'
+  assign imgg3 = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/about3_720x.png?v=1666949916'
+  assign image_url_pattern1 = imgg1 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern2 = imgg2 | replace: '_1080x.', '_{width}x.'
+  assign image_url_pattern3 = imgg3 | replace: '_1080x.', '_{width}x.'
+  assign image_widths = '[180, 360, 540, 720, 900, 1080, 1200, 1440, 1800, 2160, 2400]'
+-%}
+
+<section class="imageGridSection">
+  <div class="sec-container">
+    <div class="img-grid-row">
+      <div class="img-col mobileHide">
+        <div data-aos="fade-up">
+          <img
+            class="img-450 lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern1 }}"
+            data-widths="{{ image_widths }}"
+            data-aspectratio="1"
+            alt="about-1"
+            data-sizes="auto"
+          >
+        </div>
+        <div data-aos="fade-up" class="storeProductHub">
+          <img
+            class="img-450 lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern2 }}"
+            data-widths="{{ image_widths }}"
+            alt="about-2"
+            data-aspectratio="1"
+            data-sizes="auto"
+          >
+          <span class="storeProductLink"><a href="https://www.anoncph.com/pages/store">Store, Copenhagen</a></span>
+        </div>
+      </div>
+      <div class="img-col">
+        <div data-aos="fade-up">
+          <img
+            class="img-450 lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern3 }}"
+            data-widths="{{ image_widths }}"
+            alt="about-3"
+            data-aspectratio="1"
+            data-sizes="auto"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "About- Three img grid",
+  "settings": [],
+  "presets": [
+    {
+      "name": "About- Three img grid",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

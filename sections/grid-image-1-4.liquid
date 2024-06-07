@@ -1,0 +1,43 @@
+<section class="imgGridSection pt-307 {{ section.settings.sectionClass }}">
+  <div class="sec-container-big">
+    <div class="cusGridRow">
+      {% if section.blocks.size > 0 %}
+         {% for block in section.blocks limit: section.blocks.size %}
+            <img data-class="LazyLoad" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" data-src="{{ block.settings.custom_image | img_url: 'master' }}" />
+         {% endfor  %}
+     {% endif  %} 
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Grid 1 + 4",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Section Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grids",
+      "name": "Image",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_image",
+          "label": "Select Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid 1 + 4",
+      "category": "Image"
+    }
+  ]
+}
+{% endschema %}

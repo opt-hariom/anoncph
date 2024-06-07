@@ -1,0 +1,213 @@
+{%- liquid
+  assign wrapper = section.settings.wrapper
+  assign heading_size = section.settings.heading_size
+  assign image_aspect_ratio = section.settings.image_aspect_ratio
+  assign bg_color = section.settings.bg_color
+  assign sectionClass = section.settings.sectionClass
+  assign button_style = section.settings.button_style
+  assign animations_enabled = settings.animations_enabled
+  assign style_ref = section.settings.style_reference
+  assign animation_anchor = '#ProductsList--' | append: section.id
+  assign animation_delay = 0
+
+  assign wrapper_class = 'wrapper'
+  if wrapper == 'full'
+    assign wrapper_class = 'wrapper wrapper--full'
+  endif
+  
+assign show_section = 'no'
+  case style_ref
+  when 'Givia 40', 'Givia 55 pin', 'Givia 75'
+    assign show_section = 'yes'
+    assign meta_images = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/1-Screenshot-2023-04-18-at-09.43.20_720x.jpg?v=1681807214,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/wozScreenshot-2023-04-18-at-09.43.20_720x.jpg?v=1681821290,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/3-Screenshot-2023-04-18-at-09.43.20_720x.jpg?v=1681807214,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/ves_720x.jpg?v=1681821263'| split: ','
+    assign meta_insta = '@ceciliemoosgaard,@carowozniacki,@mollyegelind,@vestager' | split: ','
+    assign meta_title = 'Givia 40 Shiny lamb Black,Givia 40 Polished Lamb Milk White,Givia 40 Polished Lamb Candy Pink,Givia 40 Polished Lamb Milk White'| split: ','
+    assign meta_url = 'https://www.anoncph.com/products/givia-40-shiny-lamb-black,https://www.anoncph.com/products/givia-40-polished-lamb-milk-white,https://www.anoncph.com/products/givia-40-polished-lamb-candy-pink,https://www.anoncph.com/products/givia-40-polished-lamb-milk-white'| split: ','
+  when 'Fifi'
+    assign show_section = 'yes'
+    assign meta_images = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/simona_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/hannififi_img_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/molly_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/manon_720x.jpg?v=1682673851'| split: ','
+    assign meta_insta = '@simonenoa,@hannigohr,@mollyegelind,@kathrinemaron' | split: ','
+    assign meta_title = 'fifi shiny lamb milk white,Fifi Calf hair Leopard,fifi metallic goat gold,fifi metallic goat gold'| split: ','
+    assign meta_url = 'https://www.anoncph.com/products/fifi-shiny-lamb-milk-white,https://www.anoncph.com/products/fifi-lamb-hair-leopard,https://www.anoncph.com/products/fifi-metallic-goat-gold,https://www.anoncph.com/products/fifi-metallic-goat-gold'| split: ','
+  when 'Vully 50 stiletto', 'Vully 50 Triangle', 'Vully 55 pin', 'Vully 75 stiletto'
+    assign show_section = 'yes'
+    assign meta_images = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Molly_e6b3c256-fdc5-44ef-acbf-6b019938cd13_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/altFormat-IMG_3335_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/bybenedic_720x.jpg?v=1682673851,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Josefinforsberg_720x.jpg?v=1682673851'| split: ','
+    assign meta_insta = '@mollyegelind,@femina,@bybenedicthe,@josefinforsberg' | split: ','
+    assign meta_title = 'vully 50 stiletto soft calf black,vully 55 pin calf nappa milk white,vully 50 triangle calf suede black,vully 50 stiletto calf suede asphalt grey'| split: ','
+    assign meta_url = 'https://www.anoncph.com/collections/vully/products/vully-50-stiletto-soft-calf-black,https://www.anoncph.com/products/vully-55-pin-calf-nappa-milk-white,https://www.anoncph.com/products/vully-50-triangle-calf-suede-black,https://www.anoncph.com/collections/vully/products/vully-50-stiletto-calf-suede-asphalt-grey'| split: ','
+  when 'Sessi 10 Hand-braided', 'Sessi 60 Hand-braided'
+    assign show_section = 'yes'
+    assign meta_images = 'https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Media_4-D203B4D0-4846-45F1-BE70-2385FB14FE62_720x.jpg?v=1682916488,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Media_3-050BB742-1CD3-4346-BDAA-2E508DD4B6F1_720x.jpg?v=1682916487,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Media_2-14D395C3-FBCC-4960-B5FD-68CAB1EDFD45_720x.jpg?v=1682916489,https://cdn.shopify.com/s/files/1/0553/5802/9888/files/Media_1-BFAB7B85-F75D-4FCA-93CB-6E62D377E963_720x.jpg?v=1682916488'| split: ','
+    assign meta_insta = '@prosenkilde,@ohlandmusic,@kensofie,@christel_winther' | split: ','
+    assign meta_title = 'sessi 60 hand braided leather gold,sessi 60 hand braided leather lime green,sessi 60 hand braided leather gold,sessi 60 hand braided leather black'| split: ','
+    assign meta_url = 'https://www.anoncph.com/collections/sessi/products/sessi-60-hand-braided-leather-gold,https://www.anoncph.com/collections/sessi/products/sessi-60-hand-braided-leather-lime-green,https://www.anoncph.com/collections/sessi/products/sessi-60-hand-braided-leather-gold,https://www.anoncph.com/collections/sessi/products/sessi-60-hand-braided-leather-black'| split: ','
+  else
+    assign show_section = 'no'
+  endcase
+  
+-%}
+
+{%- style -%}
+  {%- if bg_color != 'rgba(0,0,0,0)' and bg_color != '' -%}
+    #ProductsList--{{ section.id }} { background-color: {{ bg_color }}; }
+  {%- endif -%}
+  #ProductsList--{{ section.id }} { --aspect-ratio: {{ image_aspect_ratio }}; }
+  #ProductsList--{{ section.id }} .products-list__nav__button { --adjust-heading: calc(var(--FONT-ADJUST-HEADING) * {{ heading_size }} * 0.01); }
+{%- endstyle -%}
+{% if show_section == 'yes' %}
+  <section
+    id="ProductsList--{{ section.id }}"
+    class="products-list-section {{ section.settings.sectionClass }}"
+    data-section-id="{{ section.id }}"
+    data-section-type="products-list"
+    data-autoplay-video="true"
+  >
+    <div class="{{ wrapper_class }}" data-overflow-container>
+      {%- unless section.settings.title == blank -%}
+        <h2
+          class="section__heading"
+          {% if animations_enabled %}
+            data-aos="fade-up" data-aos-anchor="{{ animation_anchor }}" data-aos-delay="{{ animation_delay }}"
+          {% endif %}
+        >
+          {% assign trimmed_title = style_ref | split: ' ' | first %}
+          {{ section.settings.title }}
+          {{ trimmed_title }}
+        </h2>
+        {%- assign animation_delay = animation_delay | plus: 150 -%}
+      {%- endunless -%}
+     
+
+        <div class="productRow" data-aos="fade-up">
+          {% for image_data in meta_images %}
+            {%- liquid
+              assign image_url_pattern = image_data | replace: '_720x.', '_{width}x.'
+              assign image_widths = '[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]'
+              assign product_title = meta_title[forloop.index0]
+              assign product_insta = meta_insta[forloop.index0]
+              assign product_url = meta_url[forloop.index0]
+            -%}
+
+            <div class="productCol">
+              <div class="productBlock">
+                <div class="productImg">
+                  <img
+                    class="lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-src="{{ image_url_pattern }}"
+                    data-widths="{{ image_widths }}"
+                    data-aspectratio="{{ image_aspect_ratio }}"
+                    alt="{{product_title}}"
+                    data-sizes="auto"
+                  >
+                </div>
+                <div class="productContent">
+                  <h3>{{ product_insta }}</h3>
+                  <p>
+                    <a href="{{ product_url }}">{{ product_title }}</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+{% endif %}
+{% schema %}
+{
+  "name": "Metafield Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "sectionClass",
+      "label": "Section Class"
+    },
+    {
+      "type": "text",
+      "id": "style_reference",
+      "label": "Style Reference"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+        "type": "select",
+        "id": "wrapper",
+        "label": "Width",
+        "default": "normal",
+        "options": [
+          { "value": "normal", "label": "Normal" },
+          { "value": "full", "label": "Wide" }
+        ]
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 100,
+      "max": 200,
+      "step": 10,
+      "unit": "%",
+      "default": 120
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "default": "primary btn--small",
+      "options": [
+        { "label": "Text", "value": "text" },
+        { "label": "Small button", "value": "primary btn--small" },
+        { "label": "Large button", "value": "primary" },
+        { "label": "Small outline button", "value": "secondary btn--small" },
+        { "label": "Large outline button", "value": "secondary" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_aspect_ratio",
+      "label": "Image aspect ratio",
+      "info": "Wide to tall",
+      "min": 0.5,
+      "max": 1.5,
+      "step": 0.1,
+      "unit": ":1",
+      "default": 1.0
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background"
+    }
+  ],
+  "presets": [
+      {
+        "name": "Metafield Block",
+        "category": "Text"
+      }
+    ]
+}
+{% endschema %}

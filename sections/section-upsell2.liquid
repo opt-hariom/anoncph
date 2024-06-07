@@ -1,0 +1,392 @@
+<div class="cross-selling-section" id="section-upsell2">
+  <div class="main-carousel3" data-flickity='{ "cellAlign": "left","pageDots": false, "freeScroll":true }'>
+    {%- assign product_type = '0' -%}
+    {%- assign product_inc = '0' -%}
+    {%- assign product_inc2 = '0' -%}
+    {%- assign product_inc3 = '0' -%}
+    
+  {%- assign valid_styles_hard = "Calf Suede,Calf suede print,Lizard metallic goat,Plushed calf suede" | split: "," -%}
+   {%- assign valid_styles_soft = "Calf croco,Crackled metallic goat,Distressed vegetable tanned calf,Glossy grained vegetable tanned calf,Grained chevre goat,Grained soft calf,Hand-braided leather,Lizard vegetable tanned calf,Metallic goat,Polished lamb,Polished soft calf,Shiny lamb,Silky lamb,Snake calf,Snake metallic calf,Soft calf,Vegetable tanned calf" | split: "," -%}
+
+ 
+    
+    {%- assign upsellmaterial = '' -%}
+    {%- assign upsellcolor = '' -%}
+    {%- assign material_length = 0 -%}
+    {%- assign default_inc = 1 -%}
+    {%- assign cart_item_ids = cart.items | map: 'variant_id' -%}
+
+    {%- for line_item in cart.items -%}
+    {%- if line_item.product.metafields.custom.product_type == "Anonymous Copenhagen Shoes" or
+    line_item.product.metafields.custom.product_type == "Anonymous Copenhagen Bags" -%}
+    {%- assign product_type = '1' -%}
+    {%- endif -%}
+
+    {%- if line_item.product.metafields.custom.material -%}
+    {%- assign cart_meta_cz = line_item.product.metafields.custom.material -%}
+    {%- assign cart_meta_cz = cart_meta_cz | prepend: ',,' -%}
+    {%- endif -%}
+    {%- if line_item.product.metafields.custom.color -%}
+    {%- assign cart_color_cz = line_item.product.metafields.custom.color -%}
+    {%- assign cart_color_cz = cart_color_cz | prepend: ',,' -%}
+    {%- endif -%}
+
+    {%- assign upsellmaterial = upsellmaterial | append: cart_meta_cz -%}
+    {%- assign upsellcolor = upsellcolor | append: cart_color_cz -%}
+    {%- assign material_length = forloop.index -%}
+
+    {%- endfor -%}
+   
+    {%- assign upsellcolor = upsellcolor | remove_first: ",," -%}
+    {%- assign upsellcolor = upsellcolor | split: ',,' -%}
+    {%- assign upsellmaterial = upsellmaterial | remove_first: ",," -%}
+    {%- assign upsellmaterial = upsellmaterial | split: ',,' -%}
+
+   
+    {%- for product in collection.products -%}
+
+    {%- unless cart_item_ids contains product.variants.first.id -%}
+    {%- if product_type == "1" and product.handle=="shopper-net" and product_inc == "0" -%}
+    {%- assign product_inc = '1' -%}
+    <div class="cell" upsell-color="{{ product.metafields.custom.color }}" data-order="3">
+      <div class="carousel-cell">
+        <div class="upsellStructure">
+ {%- comment -%}Added/Modified by Limoni Apps on 05/03/24 to support Discount Ninja{%- endcomment -%}
+          {%- if product.featured_image -%}
+           <section class="upsell-img">
+              <div class="img-ups">  <img src="{{ product.featured_image.src | img_url: 'small' }}" alt="{{ product.title }}"></div>
+              <div class="fore-ups"></div>  
+           </section>
+             {%- endif -%}
+           <div data-limoniapps-discountninja-product-handle="{{ product.handle }}"
+data-limoniapps-discountninja-product-collections="{{ product.collections | map: 'handle' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-collectionids="{{ product.collections | map: 'id' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-available="{{ product.available}}"
+data-limoniapps-discountninja-product-price="{{ product.first_available_variant.price | default: product.price }}"
+data-limoniapps-discountninja-product-compareatprice="{{ product.first_available_variant.compare_at_price | default: product.first_available_variant.price | default: product.compare_at_price | default: product.price }}"
+data-limoniapps-discountninja-product-pricevaries="{{ product.price_varies}}"
+data-limoniapps-discountninja-product-pricemin="{{ product.price_min}}"
+data-limoniapps-discountninja-product-tags="{{ product.tags | join: ',' | escape | default: '[[--NONE--]]' }}" class="upsellStructure">
+             <h4>{{ product.metafields.custom.cross_selling }}</h4>
+            <span>
+              <h3>{{ product.metafields.custom.style_reference }}</h3>
+              <div class="fixPriceCZ">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>{{ product.metafields.custom.cross_selling_description }}</p>
+              <div class="mobilePrice">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+              
+              <button type="button" name="add" class="product-upsell__btn btn btn--secondary" data-add-to-cart
+                data-focus-element data-upsell-btn data-product-id="{{ product.variants.first.id }}">+</button>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {%- endif -%}
+      
+    {%- endunless -%}
+    {%- for up_mat in upsellmaterial -%}
+      {%- if product_type == "1" and product.handle == "care-kit-smooth-leather" and valid_styles_soft contains up_mat and product_inc2 == "0" -%}
+      
+    {%- assign product_inc2 = '1' -%} 
+    <div class="cell" upsell-color="{{ product.metafields.custom.color }}" data-order="1">
+      <div class="carousel-cell">
+        <div class="upsellStructure">
+ {%- comment -%}Added/Modified by Limoni Apps on 05/03/24 to support Discount Ninja{%- endcomment -%}
+          {%- if product.featured_image -%}
+           <section class="upsell-img">
+              <div class="img-ups">  <img src="{{ product.featured_image.src | img_url: 'small' }}" alt="{{ product.title }}"></div>
+              <div class="fore-ups"></div>  
+           </section>
+             {%- endif -%}
+           <div data-limoniapps-discountninja-product-handle="{{ product.handle }}"
+data-limoniapps-discountninja-product-collections="{{ product.collections | map: 'handle' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-collectionids="{{ product.collections | map: 'id' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-available="{{ product.available}}"
+data-limoniapps-discountninja-product-price="{{ product.first_available_variant.price | default: product.price }}"
+data-limoniapps-discountninja-product-compareatprice="{{ product.first_available_variant.compare_at_price | default: product.first_available_variant.price | default: product.compare_at_price | default: product.price }}"
+data-limoniapps-discountninja-product-pricevaries="{{ product.price_varies}}"
+data-limoniapps-discountninja-product-pricemin="{{ product.price_min}}"
+data-limoniapps-discountninja-product-tags="{{ product.tags | join: ',' | escape | default: '[[--NONE--]]' }}" class="upsellStructure">
+             <h4>{{ product.metafields.custom.cross_selling }}</h4>
+            <span>
+              <h3>{{ product.metafields.custom.style_reference }}</h3>
+              <div class="fixPriceCZ">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>{{ product.metafields.custom.cross_selling_description }}</p>
+              <div class="mobilePrice">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+              <button type="button" name="add" class="product-upsell__btn btn btn--secondary" data-add-to-cart
+                data-focus-element data-upsell-btn data-product-id="{{ product.variants.first.id }}">+</button>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {%- endif -%}
+
+    {%- if product_type == "1" and product.handle == "care-kit-suede-leather"  and valid_styles_hard contains up_mat and product_inc3 == "0" -%}
+      
+    {%- assign product_inc3 = '1' -%}
+    <div class="cell" upsell-color="{{ product.metafields.custom.color }}" data-order="2">
+      <div class="carousel-cell">
+        <div class="upsellStructure">
+ {%- comment -%}Added/Modified by Limoni Apps on 05/03/24 to support Discount Ninja{%- endcomment -%}
+          {%- if product.featured_image -%}
+           <section class="upsell-img">
+              <div class="img-ups">  <img src="{{ product.featured_image.src | img_url: 'small' }}" alt="{{ product.title }}"></div>
+              <div class="fore-ups"></div>  
+           </section>
+             {%- endif -%}
+           <div data-limoniapps-discountninja-product-handle="{{ product.handle }}"
+data-limoniapps-discountninja-product-collections="{{ product.collections | map: 'handle' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-collectionids="{{ product.collections | map: 'id' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-available="{{ product.available}}"
+data-limoniapps-discountninja-product-price="{{ product.first_available_variant.price | default: product.price }}"
+data-limoniapps-discountninja-product-compareatprice="{{ product.first_available_variant.compare_at_price | default: product.first_available_variant.price | default: product.compare_at_price | default: product.price }}"
+data-limoniapps-discountninja-product-pricevaries="{{ product.price_varies}}"
+data-limoniapps-discountninja-product-pricemin="{{ product.price_min}}"
+data-limoniapps-discountninja-product-tags="{{ product.tags | join: ',' | escape | default: '[[--NONE--]]' }}" class="upsellStructure">
+             <h4>{{ product.metafields.custom.cross_selling }}</h4>
+            <span>
+              <h3>{{ product.metafields.custom.style_reference }}</h3>
+              <div class="fixPriceCZ">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money }}</i>
+                <i class="price">{{ final_price | money }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>{{ product.metafields.custom.cross_selling_description }}</p>
+              <div class="mobilePrice">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | plus: 0 | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+              <button type="button" name="add" class="product-upsell__btn btn btn--secondary" data-add-to-cart
+                data-focus-element data-upsell-btn data-product-id="{{ product.variants.first.id }}">+</button>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    {%- endif -%}  
+
+      
+
+
+
+      
+    {%- if product_type == "1" and product.handle != "shopper-net" and product.metafields.custom.material ==
+    "Linnie hair elastic" and up_mat == product.metafields.custom.material and upsellcolor[forloop.index0] ==
+    product.metafields.custom.color -%}
+    {%- assign material_length = material_length | minus: 1 -%}
+    {%- unless cart_item_ids contains product.variants.first.id -%}
+    {%- if product.handle == "linnie-hair-elastic-grand-bow-shiny-lamb-black" -%}
+    {%- assign default_inc = 0 -%}
+    {%- endif -%}
+    <div class="cell" upsell-color="{{ product.metafields.custom.color }}" data-order="4">
+      <div class="carousel-cell">
+        <div class="upsellStructure">
+          {%- if product.featured_image -%}
+            <section class="upsell-img">
+              <div class="img-ups"> <img src="{{ product.featured_image.src | img_url: 'small' }}" alt="{{ product.title }}"></div>
+              <div class="fore-ups"></div>  
+           </section>
+          {%- endif -%}
+           <div data-limoniapps-discountninja-product-handle="{{ product.handle }}"
+data-limoniapps-discountninja-product-collections="{{ product.collections | map: 'handle' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-collectionids="{{ product.collections | map: 'id' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-available="{{ product.available}}"
+data-limoniapps-discountninja-product-price="{{ product.first_available_variant.price | default: product.price }}"
+data-limoniapps-discountninja-product-compareatprice="{{ product.first_available_variant.compare_at_price | default: product.first_available_variant.price | default: product.compare_at_price | default: product.price }}"
+data-limoniapps-discountninja-product-pricevaries="{{ product.price_varies}}"
+data-limoniapps-discountninja-product-pricemin="{{ product.price_min}}"
+data-limoniapps-discountninja-product-tags="{{ product.tags | join: ',' | escape | default: '[[--NONE--]]' }}" class="upsellStructure">
+            <h4>{{ product.metafields.custom.cross_selling }}</h4>
+            <span>
+              <h3>{{ product.metafields.custom.style_reference }}</h3>
+              <div class="fixPriceCZ">
+                <divclass=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>{{ product.metafields.custom.cross_selling_description }}</p>
+              <div class="mobilePrice">
+              <div class=" limoniapps-discountninja-productprice">
+                {%- if product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = product.price | times: product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ product.price | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+              <button type="button" name="add" class="product-upsell__btn btn btn--secondary" data-add-to-cart
+                data-focus-element data-upsell-btn data-product-id="{{ product.variants.first.id }}">+</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {%- endunless -%}
+    
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endfor -%}
+    {%- if material_length != 0 and default_inc == 1 -%}
+    {%- assign default_product = all_products['linnie-hair-elastic-grand-bow-shiny-lamb-black'] -%}
+    {%- unless cart_item_ids contains default_product.variants.first.id -%}
+    <div class="cell" upsell-color="{{ default_product.metafields.custom.color }}" data-order="5">
+      <div class="carousel-cell">
+        <div class="upsellStructure">
+          {%- if default_product.featured_image -%}
+          
+             <section class="upsell-img">
+              <div class="img-ups"> <img src="{{ default_product.featured_image.src | img_url: 'small' }}" alt="{{ default_product.title }}"></div>
+              <div class="fore-ups"></div>  
+             </section>
+          {%- endif -%}
+       <div data-limoniapps-discountninja-product-handle="{{ default_product.handle }}"
+data-limoniapps-discountninja-product-collections="{{ default_product.collections | map: 'handle' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-collectionids="{{ default_product.collections | map: 'id' | join: ',' | default: '[[--NONE--]]' }}"
+data-limoniapps-discountninja-product-available="{{ default_product.available}}"
+data-limoniapps-discountninja-product-price="{{ default_product.first_available_variant.price | default: default_product.price }}"
+data-limoniapps-discountninja-product-compareatprice="{{ default_product.first_available_variant.compare_at_price | default: default_product.first_available_variant.price | default: default_product.compare_at_price | default: default_product.price }}"
+data-limoniapps-discountninja-product-pricevaries="{{ default_product.price_varies}}"
+data-limoniapps-discountninja-product-pricemin="{{ default_product.price_min}}"
+data-limoniapps-discountninja-product-tags="{{ default_product.tags | join: ',' | escape | default: '[[--NONE--]]' }}" class="upsellStructure">
+            <h4>{{ default_product.metafields.custom.cross_selling }}</h4>
+            <span>
+              <h3>{{ default_product.metafields.custom.style_reference }}</h3>
+              <div class="fixPriceCZ">
+                <div class=" limoniapps-discountninja-productprice">
+                  
+                {%- if default_product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = default_product.price | times:
+                default_product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = default_product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ default_product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ default_product.price | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+            </span>
+            <span>
+              <p>{{ default_product.metafields.custom.cross_selling_description }}</p>
+              <div class="mobilePrice">
+                 <div class=" limoniapps-discountninja-productprice">
+                 {%- if default_product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_decimal = default_product.price | times:
+                default_product.metafields.custom.cross_selling_discount -%}
+                {%- assign discount_amount = discount_decimal | divided_by: 100 -%}
+                {%- assign final_price = default_product.price | minus: discount_amount -%}
+                <i class="dis-price">{{ default_product.price | money_without_trailing_zeros }}</i>
+                <i class="price">{{ final_price | money_without_trailing_zeros }}</i>
+                {%- else -%}
+                <i class="price">{{ default_product.price | money_without_trailing_zeros }}</i>
+                {%- endif -%}
+                </div>
+              </div>
+                
+              <button type="button" name="add" class="product-upsell__btn btn btn--secondary" data-add-to-cart
+                data-focus-element data-upsell-btn data-product-id="{{ default_product.variants.first.id }}">+</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    {%- endunless -%}
+    {%- endif -%}
+  </div>
+</div>
+{%- schema -%}
+{
+"name": "section upsellcz 2",
+"settings": []
+}
+{%- endschema -%}

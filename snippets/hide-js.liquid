@@ -1,0 +1,27 @@
+<style id="dynamic-style"></style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Check if 'page' parameter exists in the URL
+    var page = getUrlParameter('page');
+    if (page) {
+        // Apply CSS dynamically
+        var style = document.getElementById('dynamic-style');
+        style.textContent = `
+            ul.related-products.colorPlate {
+                display: none;
+            }
+        `;
+        // Optionally, you can also add a class to specific elements
+        document.getElementById('content').classList.add('page-style');
+    }
+});
+</script>

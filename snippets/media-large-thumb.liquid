@@ -1,0 +1,69 @@
+{%- assign media_aspect_ratio = 1 -%}
+      {%- assign image = media.preview_image -%}
+      {%- assign media_padding_top = 1 | divided_by: media_aspect_ratio | times: 100 | round: 1 -%}
+      {%- assign image_url_pattern = image | img_url: '1000x' | replace: '_1000x.', '_{width}x.' -%}
+     
+      {%- assign image_widths = "[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048, 2450, 2700, 3000, 3350, 3750, 4100]" -%}
+      {%- case media.media_type -%} 
+      {%- when 'image' -%}
+      <div
+        id="FeaturedMedia-{{ unique }}" class="cz-img"
+        data-id="{{ unique }}"
+        mt="cz-image"
+        data-media-id="{{ unique }}"
+        data-aspectratio="{{ media_aspect_ratio }}"
+        data-product-single-media-wrapper>
+        <div class="product-single__media product-single__media--image">
+          <div class="product-single__media--image-height" style="padding-top: {{ media_padding_top }}%;"></div>
+          <img class="lazyload"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="{{ image_url_pattern }}"
+            data-widths= "{{ image_widths }}"
+            data-aspectratio="{{ media_aspect_ratio }}"
+            data-sizes="auto"
+            data-object-fit="contain"
+            alt="{{ product.title | strip_html | escape }}">
+          <noscript>
+            <img src="{{ media | img_url: '1024x' }}" alt="{{ product.title | strip_html | escape }}">
+          </noscript>
+            <a href="{{ media.preview_image|img_url:'master'}}" class="product-single__media-link" rel="lightbox" data-zoom-wrapper="" data-image-width="4000" data-image-height="4000">
+              <span class="visually-hidden">Open image lightbox</span>
+            </a>
+        </div>
+      </div>  
+       {%- when 'video' -%}
+           <div class="cz-img video"
+              id="FeaturedMedia-{{ unique }}"
+              data-video
+              data-video-id="{{ media.id }}"
+              data-enable-video-looping="{{ enable_video_looping }}"
+              data-id="{{ media.id }}"
+              data-aspectratio="{{ media_aspect_ratio }}"
+              data-media-id="{{ unique }}-{{ media.id }}"
+              data-type="{{ media.media_type }}"
+             >
+        <deferred-media class="cz-video-2 product-single__media product-single__media--video product-single__media--{{ media.id }} deferred-media" data-deferred-media style="padding-top: {{ media_padding_top }}%;" data-loop="{{ enable_video_looping }}">
+          <button type="button"  id='czMyVideo' class="deferred-media__poster" aria-label="{{ 'general.accessibility.view' | t }} {{ media.alt | strip_html | escape }}" data-deferred-media-button>
+            <span class="deferred-media__poster-button">
+              {%- render 'icon-media-video' -%}
+            </span>
+
+            <img
+              srcset="{% if media.preview_image.width >= 288 %}{{ media.preview_image | img_url: '288x' }} 288w,{% endif %}
+                      {% if media.preview_image.width >= 576 %}{{ media.preview_image | img_url: '576x' }} 576w,{% endif %}
+                      {% if media.preview_image.width >= 550 %}{{ media.preview_image | img_url: '550x' }} 550w,{% endif %}
+                      {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w{% endif %}"
+              src="{{ media | img_url: '550x550' }}"
+              sizes="(min-width: 1200px) calc((1200px - 10rem) / 2), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+              loading="lazy"
+              width="576"
+              height="{{ 576 | divided_by: media.preview_image.aspect_ratio }}"
+              alt="{{ media.preview_image.alt | escape }}">
+          </button>
+
+          <template>
+            {{ media | media_tag: image_size: image_size, class: 'media-video', autoplay: true, muted: true, loop: true, controls: false, preload: 'auto' }}
+          </template>
+        </deferred-media>
+       </div>          
+       {%- endcase -%}
